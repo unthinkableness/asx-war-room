@@ -31,8 +31,8 @@ Scanners must be run between 8:00 AM and 9:55 AM AEST. Only stocks meeting ALL c
 - **Allocation:** Exactly 25% of the total portfolio value per stock at purchase.
 - **The "Falling Sell" (Game Tool):** A trailing stop loss of 8-10% must be set immediately upon order confirmation.
 
-## 4. Order Execution Rules
+## 4. Order Execution Rules (Live-on-Live)
 
-- **The "20-Min Gap" Rule:** If a stock spikes in the real world (live data), place an at-market order in the game dashboard immediately to exploit the 20-minute price delay.
-- **Opening Bell:** Orders should ideally be submitted as "At Open" between 9:00 AM and 10:00 AM AEST.
+- **The "Nitro Pulse" Velocity Rule:** Orders are submitted as **At-Market** the moment the scanner detects an intraday volume spike (5x avg) or a HotCopper sentiment surge (>3 posts in 5m). We enter before the technical breakout is visible on daily charts.
+- **Immediate Fills:** Since the game is live, we do not wait for a confirmation signal. Speed of entry is the primary competitive edge.
 - **Holding Period:** Minimum 1 full trading day as per game rules.

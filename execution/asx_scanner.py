@@ -35,64 +35,27 @@ logger = setup_logger("ASXScanner")
 # These are ASX tickers appended with ".AX" for yfinance compatibility.
 # Focus: Resources (Critical Minerals, Gold, Lithium), Biotech, AI/Tech.
 # ---------------------------------------------------------------------------
-WATCHLIST = [
-    # --- Critical Minerals & Lithium ---
-    "PLS.AX",   # Pilbara Minerals
-    "LTR.AX",   # Liontown Resources
-    "SYA.AX",   # Sayona Mining
-    "CXO.AX",   # Core Lithium
-    "GL1.AX",   # Global Lithium
-    "LKE.AX",   # Lake Resources
-    "INR.AX",   # ioneer
-    "AGY.AX",   # Argosy Minerals
-    "AVZ.AX",   # AVZ Minerals
-    "FFX.AX",   # Firefinch
+# Helper: Load Game Universe Whitelist
+def get_allowed_tickers():
+    """
+    Loads the official whitelist of 364 stocks allowed in the 2026 Game 1.
+    """
+    try:
+        # Resolve path relative to this script
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        path = os.path.join(base_dir, "data", "allowed_tickers.json")
+        if os.path.exists(path):
+            with open(path, "r") as f:
+                tickers = json.load(f)
+                return [f"{t}.AX" for t in tickers if t]
+        else:
+            logger.warning(f"allowed_tickers.json not found at {path}. Using empty watchlist.")
+            return []
+    except Exception as e:
+        logger.error(f"Failed to load allowed_tickers.json: {e}")
+        return []
 
-    # --- Gold ---
-    "NST.AX",   # Northern Star
-    "EVN.AX",   # Evolution Mining
-    "RMS.AX",   # Ramelius Resources
-    "GOR.AX",   # Gold Road Resources
-    "DEG.AX",   # De Grey Mining
-    "WGX.AX",   # Westgold Resources
-    "SBM.AX",   # St Barbara
-    "RSG.AX",   # Resolute Mining
-    "RED.AX",   # Red 5
-
-    # --- Biotech ---
-    "IMU.AX",   # Imugene
-    "NXL.AX",   # Nuix
-    "RAC.AX",   # Race Oncology
-    "PNV.AX",   # PolyNovo
-    "4DX.AX",   # 4DMedical
-    "EMV.AX",   # EMVision
-
-    # --- Tech / AI ---
-    "BRN.AX",   # BrainChip
-    "XRO.AX",   # Xero
-    "WTC.AX",   # WiseTech Global
-    "TNE.AX",   # TechnologyOne
-    "DUB.AX",   # Dubber
-    "LNK.AX",   # Link Administration
-
-    # --- Energy / Uranium ---
-    "PDN.AX",   # Paladin Energy
-    "LOT.AX",   # Lotus Resources
-    "BMN.AX",   # Bannerman Energy
-    "DYL.AX",   # Deep Yellow
-    "PEN.AX",   # Peninsula Energy
-    "BOE.AX",   # Boss Energy
-
-    # --- Speculative Small-Caps ---
-    "ZIP.AX",   # Zip Co
-    "NVX.AX",   # Novonix
-    "VUL.AX",   # Vulcan Energy
-    "LYC.AX",   # Lynas Rare Earths
-    "ILU.AX",   # Iluka Resources
-    "MIN.AX",   # Mineral Resources
-    "29M.AX",   # 29Metals
-    "SFR.AX",   # Sandfire Resources
-]
+WATCHLIST = get_allowed_tickers()
 
 
 def get_stock_data(ticker, period="1mo"):
@@ -134,6 +97,19 @@ def calculate_atr_percent(df, period=14):
     close = df["Close"]
     prev_close = close.shift(1)
 
+def calculate_atr_percent(df, period=14):
+    """
+    Calculates ATR as a percentage of the current price (Volatility %).
+    Standard ATR = rolling mean of True Range.
+    """
+    if len(df) < period + 1:
+        return 0.0
+
+    high = df["High"]
+    low = df["Low"]
+    close = df["Close"]
+    prev_close = close.shift(1)
+
     tr = pd.concat([
         high - low,
         (high - prev_close).abs(),
@@ -143,6 +119,38 @@ def calculate_atr_percent(df, period=14):
     atr = tr.rolling(window=period).mean()
     atr_pct = (atr / close) * 100
     return atr_pct.iloc[-1] if not atr_pct.empty else 0.0
+
+
+def calculate_atr_value(df, period=14):
+    """
+    Returns the absolute ATR value for risk management.
+    """
+    if len(df) < period + 1:
+        return 0.0
+
+    high = df["High"]
+    low = df["Low"]
+    close = df["Close"]
+    prev_close = close.shift(1)
+
+    tr = pd.concat([
+        high - low,
+        (high - prev_close).abs(),
+        (low - prev_close).abs()
+    ], axis=1).max(axis=1)
+
+    atr = tr.rolling(window=period).mean()
+    return float(atr.iloc[-1]) if not atr.empty else 0.0
+
+
+def calculate_ema(df, period=20):
+    """
+    Calculates the Exponential Moving Average.
+    """
+    if len(df) < period:
+        return None
+    ema = df["Close"].ewm(span=period, adjust=False).mean()
+    return float(ema.iloc[-1])
 
 
 def calculate_relative_volume(df, lookback=10):
@@ -162,13 +170,24 @@ def calculate_relative_volume(df, lookback=10):
     return today_volume / avg_volume
 
 
+def is_trending_up(df, period=20):
+    """
+    Apex Hunter Trend Filter: Price MUST be above the 20-day EMA.
+    """
+    ema = calculate_ema(df, period)
+    if ema is None:
+        return False
+    return df["Close"].iloc[-1] > ema
+
+
 def is_above_sma(df, period=20):
     """
-    Checks if the latest close is above the simple moving average.
+    Standard SMA helper (maintained for compatibility).
     """
     if len(df) < period:
         return False
     sma = df["Close"].rolling(window=period).mean()
+    if sma.empty: return False
     return df["Close"].iloc[-1] > sma.iloc[-1]
 
 
@@ -368,45 +387,66 @@ def scan_momentum(
         info = get_stock_info(ticker)
         market_cap = info.get("marketCap", 0)
 
-        # Apply filters
+        # Apply Apex Hunter Filters
         if rvol < min_rvol:
             logger.info(f"  -> Skipped (RVol={rvol:.2f} < {min_rvol})")
             continue
         if atr_pct < min_atr_pct:
             logger.info(f"  -> Skipped (ATR%={atr_pct:.2f} < {min_atr_pct})")
             continue
-        if require_above_sma and not above_sma:
-            logger.info(f"  -> Skipped (below 20-day SMA)")
+        if not is_trending_up(df):
+            logger.info(f"  -> Skipped (Price below 20-day EMA)")
             continue
+        # Forensic Check: Close-to-Range (Anti-Trap)
+        cr_ratio = calculate_close_to_range_ratio(df)
+        if cr_ratio < 0.6: # Relaxed slightly from 0.75 to 0.6 for volatility
+            logger.info(f"  -> Skipped (Liquidity Trap! CR_Ratio={cr_ratio:.2f})")
+            continue
+
         if market_cap and (market_cap < min_mcap or market_cap > max_mcap):
             logger.info(f"  -> Skipped (MCap=${market_cap:,.0f} out of range)")
             continue
 
-        # V3 Machine-Learned Composite score
-        rvol_norm = min(rvol, 10.0) / 10.0
-        atr_norm = min(atr_pct, 15.0) / 15.0
-        vwap_norm = (max(min(vwap_dist, 10.0), -10.0) + 10.0) / 20.0
+        # V3 Machine-Learned Composite score + ATR Quality Factor
+        atr_value = calculate_atr_value(df)
+        volume_mult = calculate_volume_velocity(df)
+        
+        # Ensure atr_pct is float and non-zero to avoid division by zero
+        safe_atr_pct = float(atr_pct) if atr_pct else 1.0
+        quality_mult = 1.0 + (1.0 / (safe_atr_pct + 0.1))
+
+        rvol_norm = min(float(rvol or 0), 10.0) / 10.0
+        atr_norm = min(safe_atr_pct, 15.0) / 15.0
+        vwap_norm = (max(min(float(vwap_dist or 0), 10.0), -10.0) + 10.0) / 20.0
         gap_bonus = 1.5 if is_gap else 1.0
         
+        # Apex Hunter: Velocity weighting (Volume Multiplier)
+        # If volume spikes > 3x, we boost the score significantly
+        velocity_bonus = 1.5 if volume_mult > 3.0 else 1.0
+        
         raw_score = ((rvol_norm * W_RVOL) + (atr_norm * W_ATR) + (vwap_norm * W_VWAP)) * (gap_bonus * W_GAP)
-        score = raw_score * 100 * sector_mult
+        score = raw_score * 100 * sector_mult * quality_mult * velocity_bonus
 
         signal = {
             "ticker": ticker,
             "asx_code": asx_code,
-            "price": round(price, 4),
-            "rvol": round(rvol, 2),
-            "atr_pct": round(atr_pct, 2),
-            "above_sma": above_sma,
+            "price": round(float(price), 4),
+            "rvol": round(float(rvol or 0), 2),
+            "atr_pct": round(safe_atr_pct, 2),
+            "atr_value": round(float(atr_value or 0), 4),
+            "volume_velocity": round(float(volume_mult), 2),
+            "is_trending": True,
             "market_cap": market_cap,
             "vwap": vwap_val,
-            "vwap_distance_pct": vwap_dist,
-            "vwap_position": "above" if vwap_dist > 0 else "below",
+            "vwap_distance_pct": round(float(vwap_dist or 0), 2),
+            "vwap_position": "above" if (vwap_dist or 0) > 0 else "below",
             "gap_up": is_gap,
-            "gap_pct": gap_pct,
+            "gap_pct": round(float(gap_pct or 0), 2),
             "vwap_multiplier": vwap_mult,
             "gap_bonus": gap_bonus,
-            "score": round(score, 2),
+            "score": round(float(score), 2),
+            "recent_volume": float(df["Volume"].iloc[-1]),
+            "cr_ratio": round(float(cr_ratio), 2),
             "scanned_at": datetime.now().isoformat()
         }
         signals.append(signal)
@@ -419,6 +459,36 @@ def scan_momentum(
 
     logger.info(f"Scan complete. {len(signals)} signals found out of {total} tickers.")
     return signals
+
+
+def calculate_close_to_range_ratio(df):
+    """
+    Forensic Filter: Measures where the price closed relative to its range.
+    Ratio = (Close - Low) / (High - Low).
+    1.0 = Closed at High. 0.0 = Closed at Low.
+    """
+    if len(df) < 1: return 1.0
+    high = float(df["High"].iloc[-1])
+    low = float(df["Low"].iloc[-1])
+    close = float(df["Close"].iloc[-1])
+    
+    if high == low: return 1.0
+    return (close - low) / (high - low)
+
+
+def calculate_volume_velocity(df):
+    """
+    Apex Hunter Rule: Compares recent volume to the hourly average.
+    Returns: A multiplier (e.g., 5.0 means current volume is 5x normal).
+    """
+    if len(df) < 20: return 1.0
+    
+    recent_vol = float(df["Volume"].iloc[-1])
+    # Average of last 10 periods (e.g. 50 mins if 5m intervals)
+    avg_vol = float(df["Volume"].iloc[-20:-1].mean())
+    
+    if avg_vol == 0: return 1.0
+    return recent_vol / avg_vol
 
 
 def get_asx_momentum_list(top_n=10):

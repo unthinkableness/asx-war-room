@@ -23,6 +23,7 @@ import sys
 import json
 import argparse
 from datetime import datetime
+import yfinance as yf
 
 # Add project root to path
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -127,15 +128,20 @@ def run_portfolio_decisions(signals):
     else:
         logger.info("No holdings flagged for selling.")
 
-    # Determine buys (after accounting for sells)
-    # Simulate sells first to know available slots
+    # Determine buys (High-Risk Velocity Hunting)
+    # We hunt in all market conditions; no index kill-switch.
     simulated_portfolio = portfolio.copy()
     simulated_portfolio["holdings"] = [
         h for h in portfolio["holdings"]
         if h not in to_sell
     ]
-
     to_buy = get_stocks_to_buy(simulated_portfolio, signals)
+    
+    # Store additional metadata from signal for portfolio manager
+    for s in to_buy:
+        s["atr_value"] = s.get("atr_value", 0)
+        s["initial_volume"] = s.get("recent_volume", 0)
+
     if to_buy:
         logger.info(f"BUY candidates: {[s['asx_code'] for s in to_buy]}")
     else:
@@ -186,7 +192,14 @@ def execute_trades(to_sell, to_buy, force_live=False):
             qty = calculate_position_size(portfolio, price)
             if qty > 0:
                 logger.info(f"[DRY RUN] BUY {qty} x {signal['asx_code']} @ ${price:.4f}")
-                record_buy(portfolio, signal["asx_code"], qty, price)
+                record_buy(
+                    portfolio, 
+                    signal["asx_code"], 
+                    qty, 
+                    price, 
+                    atr_value=signal.get("atr_value", 0),
+                    initial_volume=signal.get("recent_volume", 0)
+                )
             else:
                 logger.info(f"[DRY RUN] Skipping {signal['asx_code']} (insufficient funds)")
         return
@@ -226,7 +239,14 @@ def execute_trades(to_sell, to_buy, force_live=False):
             logger.info(f"EXECUTING BUY: {qty} x {code} @ ~${price:.4f}")
             success = bot.place_order(code, qty, order_type="buy")
             if success:
-                record_buy(portfolio, code, qty, price)
+                record_buy(
+                    portfolio, 
+                    code, 
+                    qty, 
+                    price, 
+                    atr_value=signal.get("atr_value", 0),
+                    initial_volume=signal.get("recent_volume", 0)
+                )
             else:
                 logger.error(f"BUY FAILED for {code}")
 

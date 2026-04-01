@@ -1129,7 +1129,8 @@
                         <th class="right">RVol</th>
                         <th class="right">ATR%</th>
                         <th class="right">VWAP</th>
-                        <th class="right">Gap</th>
+                        <th class="right">Nitro</th>
+                        <th class="right">Forensic</th>
                         <th class="right">Score</th>
                     </tr>
                 </thead>
@@ -1140,7 +1141,11 @@
             const vwapArrow = (s.vwap_distance_pct || 0) > 0 ? '▲' : '▼';
             const scorePercent = maxScore > 0 ? ((s.score / maxScore) * 100) : 0;
             const scoreColor = scorePercent > 70 ? 'var(--green)' : scorePercent > 40 ? 'var(--amber)' : 'var(--red)';
-            const gapHtml = s.gap_up ? `<span class="gap-badge">⚡${(s.gap_pct || 0).toFixed(1)}%</span>` : `<span class="neutral-val">${(s.gap_pct || 0).toFixed(1)}%</span>`;
+            
+            const nitroVal = s.volume_velocity || 1.0;
+            const nitroClass = nitroVal > 3.0 ? 'highlight-cyan' : '';
+            const crRatio = s.cr_ratio || 0.5; // Note: Use cr_ratio field from signal
+            const crClass = crRatio > 0.8 ? 'highlight-green' : crRatio < 0.4 ? 'highlight-red' : '';
 
             // Action Buttons Layer
             const btnHtml = `<button class="action-btn" onclick="generateExplanation('${s.asx_code}'); event.stopPropagation();" style="padding:2px 6px; font-size:10px; margin-right:4px;">AI</button>` +
@@ -1157,7 +1162,8 @@
                     <td class="right ${s.rvol > 4 ? 'positive' : 'neutral-val'}">${(s.rvol || 0).toFixed(1)}x</td>
                     <td class="right ${s.atr_pct > 6 ? 'amber-val' : 'neutral-val'}">${(s.atr_pct || 0).toFixed(1)}%</td>
                     <td class="right ${vwapClass}">${vwapArrow} ${Math.abs(s.vwap_distance_pct || 0).toFixed(1)}%</td>
-                    <td class="right">${gapHtml}</td>
+                    <td class="right ${nitroClass}">${nitroVal.toFixed(1)}x</td>
+                    <td class="right ${crClass}">${(crRatio * 100).toFixed(0)}%</td>
                     <td class="right">
                         <div class="score-cell">
                             <div class="score-bar">

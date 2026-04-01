@@ -145,49 +145,77 @@ def can_sell(holding):
 
 def get_holdings_to_sell(portfolio, signals):
     """
-    Determines which current holdings should be sold based on the
-    watchlist_rules.md directive.
-
-    Sell conditions:
-      1. Not in top signals: replaced by a better candidate
-      2. V3 Volume Standoff Exit: Intraday live price drops below benchmark VWAP
-
-    Args:
-        portfolio: Current portfolio dict
-        signals: List of current momentum signals from the scanner
-
-    Returns:
-        List of holding dicts that should be sold.
+    Apex Hunter Exit Logic:
+    1.  Trailing Stop (2 * ATR): Sell if price drops 2x ATR from its peak.
+    2.  Momentum Loss: Sell if no longer in the top signals.
+    3.  Trend Break: Sell if price drops below EMA(20) or VWAP.
     """
     to_sell = []
-    signal_codes = {s["asx_code"] for s in signals}
+    signal_codes = {s["asx_code"]: s for s in signals}
 
     for holding in portfolio.get("holdings", []):
         code = holding.get("code", "")
-
-        # Check holding period
         if not can_sell(holding):
-            logger.info(f"Cannot sell {code} yet (holding period not met)")
             continue
 
-        # Check if still in our signal list
+        # Update High-Water Mark (Trailing Stop Logic)
+        current_price = holding.get("current_price", holding.get("avg_price", 0))
+        highest_price = holding.get("highest_price", current_price)
+        holding["highest_price"] = max(highest_price, current_price)
+        
+        # 1. Trailing Stop Check (2 * ATR)
+        atr_at_purchase = holding.get("atr_at_purchase", 0)
+        if atr_at_purchase > 0:
+            stop_price = holding["highest_price"] - (2 * atr_at_purchase)
+            if current_price < stop_price:
+                logger.warning(f"🚨 SELL (Trailing Stop): {code} hit stop at ${current_price:.4f} (Peak: ${holding['highest_price']:.4f})")
+                to_sell.append(holding)
+                continue
+
+        # 2. Momentum Loss Check
         if code not in signal_codes:
-            logger.info(f"SELL signal: {code} is no longer in the top momentum list")
+            logger.info(f"SELL: {code} is no longer in the top momentum signals.")
             to_sell.append(holding)
             continue
             
-        # V3 Advanced Volume Standoff Exit
+        # 3. Volume/Trend Break Check (Forensic Upgrades)
         try:
-            from execution.asx_scanner import get_stock_data, calculate_vwap_distance
+            from execution.asx_scanner import get_stock_data, calculate_vwap_distance, is_trending_up, calculate_volume_velocity
             df = get_stock_data(code + ".AX", period="5d")
             if df is not None and not df.empty:
+                # VWAP Extension Check (Parabolic Peak)
                 vwap_dist, _ = calculate_vwap_distance(df)
-                if vwap_dist is not None and vwap_dist < -1.5:
-                    logger.warning(f"🚨 SELL signal (Volume Break): {code} has dumped {vwap_dist:.2f}% below VWAP!")
+                if vwap_dist is not None:
+                    # Apex Hunter Rule: If price is > 10% above VWAP, tighten stop to previous 5m low
+                    if float(vwap_dist) > 10.0:
+                        prev_low = float(df["Low"].iloc[-2]) if len(df) > 1 else current_price
+                        if current_price < prev_low:
+                            logger.warning(f"🚨 SELL (Parabolic Exit): {code} broke 5m low after 10% VWAP extension.")
+                            to_sell.append(holding)
+                            continue
+
+                # Volume Exhaustion Check (Absorption)
+                initial_vol = holding.get("initial_volume", 0)
+                if initial_vol > 0:
+                    current_vol = float(df["Volume"].iloc[-1])
+                    price_change = abs((current_price / float(df["Close"].iloc[-2])) - 1) * 100 if len(df) > 1 else 0
+                    if current_vol > (1.5 * initial_vol) and price_change < 0.2:
+                        logger.warning(f"🚨 SELL (Volume Exhaustion): {code} high volume absorption detected.")
+                        to_sell.append(holding)
+                        continue
+
+                # Standard VWAP Check
+                if vwap_dist is not None and float(vwap_dist) < -2.0:
+                    logger.warning(f"🚨 SELL (Volume Break): {code} is {vwap_dist:.2f}% below VWAP.")
+                    to_sell.append(holding)
+                    continue
+                # EMA Check
+                if not is_trending_up(df):
+                    logger.warning(f"🚨 SELL (Trend Break): {code} dropped below EMA(20).")
                     to_sell.append(holding)
                     continue
         except Exception as e:
-            logger.warning(f"V3 Exit check failed for {code}: {e}")
+            logger.warning(f"Trend exit check failed for {code}: {e}")
 
     return to_sell
 
@@ -226,7 +254,7 @@ def get_stocks_to_buy(portfolio, signals):
     return to_buy
 
 
-def record_buy(portfolio, asx_code, quantity, price):
+def record_buy(portfolio, asx_code, quantity, price, atr_value=0.0, initial_volume=0.0):
     """Records a completed buy in the portfolio state."""
     brokerage = calculate_brokerage(quantity * price)
     total_cost = (quantity * price) + brokerage
@@ -237,13 +265,15 @@ def record_buy(portfolio, asx_code, quantity, price):
         "quantity": quantity,
         "avg_price": price,
         "current_price": price,
+        "highest_price": price,              # Added for ATR Trailing Stop
+        "atr_at_purchase": atr_value,        # Metadata for risk scaling
+        "initial_volume": initial_volume,    # Forensic exhaustion baseline
         "value": quantity * price,
         "purchased_at": datetime.now().isoformat(),
         "brokerage_paid": brokerage
     })
     save_portfolio(portfolio)
-    logger.info(f"Recorded BUY: {quantity} x {asx_code} @ ${price:.4f} "
-                f"(total: ${total_cost:,.2f})")
+    logger.info(f"Recorded BUY: {quantity} x {asx_code} @ ${price:.4f} [ATR={atr_value}] [Vol={initial_volume}]")
 
 
 def record_sell(portfolio, asx_code, quantity, price):
