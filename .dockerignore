@@ -1,0 +1,14 @@
+.git
+.tmp/
+.venv/
+__pycache__/
+*.pyc
+.env
+.local
+*.log
+dashboard/data/
+data/
+node_modules/
+.gemini/
+.agent/
+*.md

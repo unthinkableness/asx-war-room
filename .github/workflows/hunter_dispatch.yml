@@ -1,0 +1,53 @@
+name: ASX Momentum Hunter - Manual Trade
+
+on:
+  repository_dispatch:
+    types: [buy_stock, sell_stock, run_scan]
+
+jobs:
+  manual_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install chromium
+
+      - name: Execute Dispatch Action
+        env:
+          ASX_USER: ${{ secrets.ASX_USER }}
+          ASX_PASS: ${{ secrets.ASX_PASS }}
+          HOTCOPPER_USER: ${{ secrets.HOTCOPPER_USER }}
+          HOTCOPPER_PASS: ${{ secrets.HOTCOPPER_PASS }}
+          TICKER: ${{ github.event.client_payload.ticker }}
+          AMOUNT: ${{ github.event.client_payload.amount }}
+          ACTION: ${{ github.event.action }}
+          DRY_RUN: "False"
+        run: |
+          if [ "$ACTION" == "buy_stock" ]; then
+            python orchestrator.py --buy "$TICKER" --amount "$AMOUNT" --live
+          elif [ "$ACTION" == "sell_stock" ]; then
+            python orchestrator.py --sell "$TICKER" --live
+          elif [ "$ACTION" == "run_scan" ]; then
+            python orchestrator.py --live
+          fi
+
+      - name: Commit and Push Portfolio Sync
+        run: |
+          git config --global user.name "Hunter-Bot"
+          git config --global user.email "bot@asx-hunter.local"
+          git add data/*.json
+          git commit -m "Manual Trade Sync: ${{ github.event.client_payload.ticker }} (${{ github.event.action }})" || echo "No changes to commit"
+          git push

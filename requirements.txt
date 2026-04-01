@@ -1,0 +1,9 @@
+# ASX Automation Dependencies
+pandas
+yfinance
+playwright
+beautifulsoup4
+python-dotenv
+requests
+pytest
+pytz
