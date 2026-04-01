@@ -2,8 +2,8 @@ name: ASX Momentum Hunter - Scheduled Scan
 
 on:
   schedule:
-    # Runs every 30 mins, Mon-Fri, during ASX hours (approx 00:00 to 07:00 UTC)
-    - cron: '*/30 0-7 * * 1-5'
+    # Runs every 5 mins (tightest free tier) during ASX hours
+    - cron: '*/5 0-7 * * 1-5'
   workflow_dispatch:
     # Allows manual triggering from GitHub UI
 
