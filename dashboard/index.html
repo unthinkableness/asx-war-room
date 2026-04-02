@@ -915,6 +915,48 @@
         dispatch:  `${API_BASE}/dispatches`
     };
 
+    // AI Insight Generator (Frontend Synthesizer)
+    function synthesizeInsight(ticker) {
+        const s = scanData.find(x => x.asx_code === ticker);
+        if (!s) return "No telemetry found for this ticker.";
+
+        const score = s.score || 0;
+        const rvol = s.rvol || 0;
+        const pulse = s.pulse_score || 0;
+        const vwapDist = s.vwap_distance_pct || 0;
+
+        let insight = `Analysis for **${ticker}** at $${s.price.toFixed(3)}:<br><br>`;
+        
+        if (score >= 100) {
+            insight += `🚀 **ELITE SIGNAL**: Extremely high conviction. `;
+        } else if (score >= 50) {
+            insight += `📈 **STRONG TREND**: Solid momentum detected. `;
+        } else {
+            insight += `🔍 **WATCHLIST**: Emerging signal with entry potential. `;
+        }
+
+        insight += `Relative volume is at **${rvol.toFixed(1)}x**, indicating ${rvol > 3 ? 'heavy professional accumulation' : 'steady interest'}. `;
+        
+        if (pulse > 3) {
+            insight += `The **Nitro Pulse (${pulse.toFixed(1)})** is firing, suggesting a spring-loaded move near VWAP. `;
+        } else if (pulse > 1.5) {
+            insight += `Slight pressure buildup in the **Nitro Pulse**. `;
+        }
+
+        if (vwapDist > 0) {
+            insight += `Price is currently **${vwapDist.toFixed(1)}% above** VWAP, showing clear buyer dominance. `;
+        } else {
+            insight += `Price is hugging VWAP (**${vwapDist.toFixed(1)}% diff**), offering a lower-risk entry point. `;
+        }
+
+        if (s.gap_up) {
+            insight += `A gap of **${(s.gap_pct || 0).toFixed(1)}%** was detected at open, confirming immediate demand. `;
+        }
+
+        insight += `<br><br>_Synthesized via War Room v2 Forensic Engine._`;
+        return insight;
+    }
+
     // ─── STATE ───
     let scanData = [];
     let sentimentData = [];
@@ -1028,60 +1070,60 @@
     }
 
     async function toggleAutomation() {
-        if (!ENDPOINTS.toggleAuto) {
-            alert("Interactive features are disabled in Static mode. Please deploy tunnel.");
-            return;
-        }
-
         const newState = !automationEnabled;
         const msg = newState 
-            ? "⚠️ WARNING: This will enable full autonomous trading on your account. Are you sure?" 
+            ? "⚠️ WARNING: This will enable full autonomous trading on your account via GitHub cloud. Are you sure?" 
             : "Disable autonomous trading?";
             
         if (!confirm(msg)) return;
 
-        document.getElementById('btnToggleAuto').innerHTML = '...';
-        const res = await fetch(ENDPOINTS.toggleAuto, {
-            method: 'POST',
-            headers: Object.assign({'Bypass-Tunnel-Reminder': 'true'}, getAuthHeader())
-        });
-        if (res.status === 401) {
-            localStorage.removeItem('hunter_api_password');
-            alert("Invalid Password!");
-            return;
-        }
-        if (res.ok) {
-            const data = await res.json();
-            automationEnabled = data.automation_enabled;
-            addLog(`Automation toggled to ${automationEnabled ? 'ON' : 'OFF'}`);
-            loadSystemStatus();
+        const btn = document.getElementById('btnToggleAuto');
+        const oldText = btn.innerHTML;
+        btn.innerHTML = '...';
+
+        addLog(`🚀 Sending automation toggle dispatch to GitHub...`);
+
+        try {
+            const res = await fetch(ENDPOINTS.dispatch, {
+                method: 'POST',
+                headers: getAuthHeader(),
+                body: JSON.stringify({
+                    event_type: 'toggle_automation',
+                    client_payload: { enabled: newState }
+                })
+            });
+            
+            if (res.status === 204) {
+                addLog('✅ Toggle queued! GitHub will update state in ~60s.', 'success');
+                // Optimistic UI update
+                automationEnabled = newState;
+                btn.innerHTML = newState ? '🤖 Auto: ON' : '🛑 Auto: OFF';
+                btn.style.backgroundColor = newState ? 'var(--green-dim)' : 'var(--red-dim)';
+                btn.style.color = newState ? 'var(--green)' : 'var(--red)';
+                btn.style.borderColor = newState ? 'var(--green)' : 'var(--red)';
+            } else {
+                addLog('❌ Failed to toggle. Check PAT.', 'error');
+                btn.innerHTML = oldText;
+            }
+        } catch (e) {
+            addLog('Toggle failed: ' + e.message);
+            btn.innerHTML = oldText;
         }
     }
 
     async function generateExplanation(ticker) {
-        if (!ENDPOINTS.explain) {
-            alert("AI generation requires local API backend to be tunneled.");
-            return;
-        }
-        
         const modal = document.getElementById('aiModal');
-        document.getElementById('aiModalTitle').innerText = `🤖 AI Insight: ${ticker}`;
-        document.getElementById('aiModalBody').innerHTML = `<span class="spinner" style="display:inline-block"></span> Synthesizing telemetry...`;
+        document.getElementById('aiModalTitle').innerText = `🤖 Forensic Insight: ${ticker}`;
+        
+        const body = document.getElementById('aiModalBody');
+        body.innerHTML = `<span class="spinner" style="display:inline-block"></span> Synthesizing telemetry...`;
         modal.style.display = 'flex';
         
-        const res = await fetch(`${ENDPOINTS.explain}?ticker=${ticker}`, {
-            headers: Object.assign({'Bypass-Tunnel-Reminder': 'true'}, getAuthHeader())
-        });
-        if (res.status === 401) {
-            document.getElementById('aiModalBody').innerText = "Auth Failed (401). Invalid system password.";
-            return;
-        }
-        if (res.ok) {
-            const data = await res.json();
-            document.getElementById('aiModalBody').innerText = data.explanation || data.error;
-        } else {
-            document.getElementById('aiModalBody').innerText = "Failed to communicate with AI engine.";
-        }
+        // Simulating synthetic thinking delay
+        setTimeout(() => {
+            const insight = synthesizeInsight(ticker);
+            body.innerHTML = insight;
+        }, 800);
     }
     
     async function executeManualTrade(action, ticker, amount = 12500) {

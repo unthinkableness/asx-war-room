@@ -397,6 +397,7 @@ if __name__ == "__main__":
     parser.add_argument("--buy", type=str, help="Manually buy a specific ticker (for manual trades)")
     parser.add_argument("--sell", type=str, help="Manually sell a specific ticker (for manual trades)")
     parser.add_argument("--amount", type=float, default=12500, help="Amount to buy ($)")
+    parser.add_argument("--toggle", type=str, help="Toggle automation state (true/false)")
     args = parser.parse_args()
 
     # Special Mode: Manual Buy/Sell
@@ -415,10 +416,21 @@ if __name__ == "__main__":
             bot.sell_stock(ticker)
         bot.close()
         
-        from execution.portfolio_manager import update_portfolio_holdings
         update_portfolio_holdings()
         save_equity_point()
         logger.info("Manual trade execution complete.")
+        sys.exit(0)
+
+    # Special Mode: Toggle Automation
+    if args.toggle:
+        state_path = os.path.join(PROJECT_ROOT, "data", "system_state.json")
+        new_state = args.toggle.lower() == "true"
+        
+        state = {"automation_enabled": new_state, "last_updated": datetime.now().isoformat()}
+        with open(state_path, "w") as f:
+            json.dump(state, f, indent=2)
+            
+        logger.info(f"SYSTEM STATE: Automation toggled to {new_state}")
         sys.exit(0)
 
     if args.loop:

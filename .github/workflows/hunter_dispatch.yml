@@ -2,7 +2,7 @@ name: ASX Momentum Hunter - Manual Trade
 
 on:
   repository_dispatch:
-    types: [buy_stock, sell_stock, run_scan]
+    types: [buy_stock, sell_stock, run_scan, toggle_automation]
 
 jobs:
   manual_action:
@@ -35,6 +35,7 @@ jobs:
           HOTCOPPER_PASS: ${{ secrets.HOTCOPPER_PASS }}
           TICKER: ${{ github.event.client_payload.ticker }}
           AMOUNT: ${{ github.event.client_payload.amount }}
+          ENABLED: ${{ github.event.client_payload.enabled }}
           ACTION: ${{ github.event.action }}
           DRY_RUN: "False"
         run: |
@@ -44,6 +45,8 @@ jobs:
             python orchestrator.py --sell "$TICKER" --live
           elif [ "$ACTION" == "run_scan" ]; then
             python orchestrator.py --live
+          elif [ "$ACTION" == "toggle_automation" ]; then
+            python orchestrator.py --toggle "$ENABLED" --live
           fi
 
       - name: Commit and Push Portfolio Sync
