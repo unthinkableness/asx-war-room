@@ -354,6 +354,44 @@ def print_portfolio_summary(portfolio):
     print(f"{'='*50}\n")
 
 
+def update_portfolio_holdings():
+    """
+    Fetches the latest prices for all current holdings and updates the portfolio JSON.
+    This is called after manual trades or periodically by the orchestrator.
+    """
+    from execution.asx_scanner import get_live_price
+    
+    portfolio = load_portfolio()
+    holdings = portfolio.get("holdings", [])
+    
+    if not holdings:
+        logger.info("No holdings to update.")
+        return
+        
+    logger.info(f"Syncing prices for {len(holdings)} holdings...")
+    
+    updated = False
+    for h in holdings:
+        code = h.get("code")
+        # Ensure it has .AX for yfinance if not already there
+        yf_ticker = f"{code}.AX" if not code.endswith(".AX") else code
+        
+        live_price = get_live_price(yf_ticker)
+        if live_price:
+            h["current_price"] = float(live_price)
+            # Update highest price for trailing stop logic
+            h["highest_price"] = max(h.get("highest_price", 0), h["current_price"])
+            h["value"] = h["quantity"] * h["current_price"]
+            updated = True
+            logger.info(f"  {code}: ${h['current_price']:.4f}")
+            
+    if updated:
+        save_portfolio(portfolio)
+        logger.info("Portfolio prices synced successfully.")
+    else:
+        logger.warning("No prices could be updated.")
+
+
 if __name__ == "__main__":
     portfolio = load_portfolio()
     print_portfolio_summary(portfolio)

@@ -35,7 +35,8 @@ from execution.hotcopper_scraper import get_ticker_sentiment
 from execution.portfolio_manager import (
     load_portfolio, save_portfolio, calculate_position_size,
     get_holdings_to_sell, get_stocks_to_buy,
-    record_buy, record_sell, print_portfolio_summary
+    record_buy, record_sell, print_portfolio_summary,
+    update_portfolio_holdings
 )
 from execution.game_bot import ASXGameBot
 
@@ -100,12 +101,24 @@ def run_sentiment_filter(signals, threshold=SENTIMENT_THRESHOLD):
             logger.info(f"  ✗ {code}: sentiment={sentiment['sentiment_score']:.3f} (FAIL, "
                          f"need ≥{threshold})")
 
-    # Re-sort by combined score: momentum * sentiment
+    # Unified Scoring: Overwrite the original score with the combined one
     for s in filtered:
-        s["combined_score"] = round(s["score"] * s["sentiment_score"], 2)
-    filtered.sort(key=lambda x: x["combined_score"], reverse=True)
+        s["momentum_score"] = s["score"] # Keep as backup
+        s["score"] = round(s["score"] * s["sentiment_score"], 2)
 
-    logger.info(f"Sentiment filter: {len(filtered)}/{len(signals)} passed")
+    filtered.sort(key=lambda x: x["score"], reverse=True)
+
+    # CRITICAL: Overwrite the public scan data with the sentiment-filtered truth
+    try:
+        data_dir = os.path.join(PROJECT_ROOT, "data")
+        output_path = os.path.join(data_dir, "latest_scan.json")
+        with open(output_path, "w") as f:
+            json.dump(filtered if filtered else signals, f, indent=2)
+        logger.info(f"True Signal scores (Momentum × Sentiment) saved to {output_path}")
+    except Exception as e:
+        logger.error(f"Failed to update unified scan data: {e}")
+
+    logger.info(f"Sentiment filter complete: {len(filtered)}/{len(signals)} passed")
     return filtered
 
 

@@ -1288,7 +1288,9 @@
                         <div class="tooltip-row"><span class="tooltip-label">Gap-Up Detected</span><span class="tooltip-value">${s.gap_up ? '⚡ YES (' + (s.gap_pct||0).toFixed(1) + '%)' : 'No'}</span></div>
                         <div class="tooltip-row"><span class="tooltip-label">Gap Bonus</span><span class="tooltip-value">${s.gap_bonus || 1.0}x</span></div>
                         <div class="tooltip-row"><span class="tooltip-label">Market Cap</span><span class="tooltip-value">$${((s.market_cap || 0) / 1e6).toFixed(0)}M</span></div>
-                        <div class="tooltip-row" style="border:none; padding-top:6px"><span class="tooltip-label" style="font-weight:600; color:var(--text-secondary)">Composite Score</span><span class="tooltip-value" style="color:${scoreColor}; font-size:14px">${(s.score || 0).toFixed(2)}</span></div>
+                        <div class="tooltip-row" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:6px;"><span class="tooltip-label">Raw Momentum</span><span class="tooltip-value">${(s.momentum_score || s.score || 0).toFixed(2)}</span></div>
+                        <div class="tooltip-row"><span class="tooltip-label">Sentiment Multiplier</span><span class="tooltip-value">${(s.sentiment_score || 1.0).toFixed(2)}x</span></div>
+                        <div class="tooltip-row" style="border:none; padding-top:6px"><span class="tooltip-label" style="font-weight:600; color:var(--text-secondary)">Final Nitro Signal</span><span class="tooltip-value" style="color:${scoreColor}; font-size:14px">${(s.score || 0).toFixed(2)}</span></div>
                     </div>
                 </tr>`;
         });
