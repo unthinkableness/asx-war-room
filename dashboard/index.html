@@ -917,6 +917,8 @@
         addLog(`📦 Storage: github.com/${G.user}/${G.repo}`);
         
         // Ensure PAT is prompted
+        // Only prompt for token if it's literally not there and we're NOT in public-access mode
+        // But regardless, we'll return it so that dispatches (POSTs) can use it.
         getAuthHeader();
     }
 
@@ -926,16 +928,18 @@
             // Append timestamp to prevent browser/CDN caching
             const url = endpoint.includes('?') ? `${endpoint}&t=${Date.now()}` : `${endpoint}?t=${Date.now()}`;
             
+            const isRawGitHub = endpoint.includes('raw.githubusercontent.com');
+            
             const reqContext = {
                 method: 'GET',
                 headers: Object.assign({
                     'Accept': 'application/json',
                     'Bypass-Tunnel-Reminder': 'true'
-                }, getAuthHeader())
+                }, isRawGitHub ? {} : getAuthHeader()) // ⚡ Fix: GitHub Raw doesn't support OPTIONS preflight for public files!
             };
             
             const res = await fetch(url, reqContext);
-            if (res.status === 401) {
+            if (res.status === 401 && !isRawGitHub) {
                 localStorage.removeItem('hunter_api_password');
                 addLog('⚠️ Auth Failed. Please refresh page to enter correct password.', 'error');
                 return null;
