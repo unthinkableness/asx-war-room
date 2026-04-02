@@ -932,10 +932,12 @@
             
             const reqContext = {
                 method: 'GET',
-                headers: Object.assign({
+                headers: isRawGitHub ? {
+                    'Accept': 'application/json' // Accept is safelisted if it's type/subtype
+                } : Object.assign({
                     'Accept': 'application/json',
                     'Bypass-Tunnel-Reminder': 'true'
-                }, isRawGitHub ? {} : getAuthHeader()) // ⚡ Fix: GitHub Raw doesn't support OPTIONS preflight for public files!
+                }, getAuthHeader())
             };
             
             const res = await fetch(url, reqContext);
