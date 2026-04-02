@@ -691,6 +691,48 @@
             color: var(--text-muted);
             font-family: var(--font-mono);
         }
+
+        /* ═══════════════════════════════════════════════════════════
+           SECTION HEADERS
+           ═══════════════════════════════════════════════════════════ */
+        .table-section-header {
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.05), transparent) !important;
+            border-left: 2px solid var(--cyan);
+            pointer-events: none;
+        }
+
+        .table-section-header td {
+            font-size: 10px !important;
+            font-weight: 800 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 12px 16px !important;
+            color: var(--cyan) !important;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           PULSE GLOW
+           ═══════════════════════════════════════════════════════════ */
+        .pulse-cell {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--purple);
+            box-shadow: 0 0 10px var(--purple);
+        }
+
+        .pulse-glow {
+            font-weight: 700;
+            color: var(--purple);
+            text-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -1136,13 +1178,25 @@
                         <th class="right">ATR%</th>
                         <th class="right">VWAP</th>
                         <th class="right">Nitro</th>
-                        <th class="right">Forensic</th>
+                        <th class="right">Pulse</th>
                         <th class="right">Score</th>
                     </tr>
                 </thead>
                 <tbody>`;
 
+        let eliteHeaderRendered = false;
+        let emergingHeaderRendered = false;
+
         signals.forEach((s, i) => {
+            // Section Headers
+            if (s.score >= 100 && !eliteHeaderRendered) {
+                html += `<tr class="table-section-header"><td colspan="9">Elite Runners (High Conviction)</td></tr>`;
+                eliteHeaderRendered = true;
+            } else if (s.score < 100 && !emergingHeaderRendered) {
+                html += `<tr class="table-section-header"><td colspan="9">Emerging Momentum (Watchlist)</td></tr>`;
+                emergingHeaderRendered = true;
+            }
+
             const vwapClass = (s.vwap_distance_pct || 0) > 0 ? 'vwap-above' : 'vwap-below';
             const vwapArrow = (s.vwap_distance_pct || 0) > 0 ? '▲' : '▼';
             const scorePercent = maxScore > 0 ? ((s.score / maxScore) * 100) : 0;
@@ -1169,7 +1223,12 @@
                     <td class="right ${s.atr_pct > 6 ? 'amber-val' : 'neutral-val'}">${(s.atr_pct || 0).toFixed(1)}%</td>
                     <td class="right ${vwapClass}">${vwapArrow} ${Math.abs(s.vwap_distance_pct || 0).toFixed(1)}%</td>
                     <td class="right ${nitroClass}">${nitroVal.toFixed(1)}x</td>
-                    <td class="right ${crClass}">${(crRatio * 100).toFixed(0)}%</td>
+                    <td class="right">
+                        <div class="pulse-cell">
+                            <div class="pulse-dot" style="opacity:${(s.pulse_score || 0) / 10}"></div>
+                            <span class="pulse-glow">${(s.pulse_score || 0).toFixed(1)}</span>
+                        </div>
+                    </td>
                     <td class="right">
                         <div class="score-cell">
                             <div class="score-bar">

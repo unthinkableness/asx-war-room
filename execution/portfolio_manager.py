@@ -214,6 +214,28 @@ def get_holdings_to_sell(portfolio, signals):
                     logger.warning(f"🚨 SELL (Trend Break): {code} dropped below EMA(20).")
                     to_sell.append(holding)
                     continue
+
+                # 4. Rotation Logic: If portfolio is full, is there a MUCH stronger runner?
+                if len(portfolio.get("holdings", [])) >= MAX_HOLDINGS:
+                    # Find top candidate not in current holdings
+                    top_candidate = next((s for s in signals if s["asx_code"] not in signal_codes), None)
+                    if top_candidate:
+                        holding_signal = signal_codes.get(code)
+                        holding_score = holding_signal["score"] if holding_signal else 0
+                        # Rotation Threshold: New signal must be 1.5x better than current holding
+                        if top_candidate["score"] > (holding_score * 1.5):
+                            # Only rotate if this is literally our weakest holding
+                            holdings_with_scores = []
+                            for h in portfolio.get("holdings", []):
+                                h_sig = signal_codes.get(h["code"])
+                                h_score = h_sig["score"] if h_sig else 0
+                                holdings_with_scores.append((h["code"], h_score))
+                            
+                            weakest_code = min(holdings_with_scores, key=lambda x: x[1])[0]
+                            if code == weakest_code:
+                                logger.warning(f"🔄 ROTATION: {code} (Score: {holding_score}) to be replaced by {top_candidate['asx_code']} (Score: {top_candidate['score']})")
+                                to_sell.append(holding)
+                                continue
         except Exception as e:
             logger.warning(f"Trend exit check failed for {code}: {e}")
 

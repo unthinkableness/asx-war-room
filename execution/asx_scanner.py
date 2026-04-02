@@ -320,10 +320,10 @@ def load_optimal_weights():
 
 def scan_momentum(
     watchlist=None,
-    min_rvol=2.5,
-    min_atr_pct=4.0,
-    min_mcap=50_000_000,
-    max_mcap=300_000_000,
+    min_rvol=1.5,
+    min_atr_pct=2.5,
+    min_mcap=40_000_000,
+    max_mcap=350_000_000,
     require_above_sma=True
 ):
     """
@@ -387,25 +387,16 @@ def scan_momentum(
         info = get_stock_info(ticker)
         market_cap = info.get("marketCap", 0)
 
-        # Apply Apex Hunter Filters
-        if rvol < min_rvol:
-            logger.info(f"  -> Skipped (RVol={rvol:.2f} < {min_rvol})")
-            continue
-        if atr_pct < min_atr_pct:
-            logger.info(f"  -> Skipped (ATR%={atr_pct:.2f} < {min_atr_pct})")
-            continue
-        if not is_trending_up(df):
-            logger.info(f"  -> Skipped (Price below 20-day EMA)")
-            continue
-        # Forensic Check: Close-to-Range (Anti-Trap)
+        # Apply Apex Hunter Filters (SOFT FILTERS for Dashboard visibility)
+        passes_rvol = bool(rvol >= min_rvol)
+        passes_atr = bool(atr_pct >= min_atr_pct)
+        passes_trend = bool(is_trending_up(df))
+        passes_mcap = bool(not market_cap or (market_cap >= min_mcap and market_cap <= max_mcap))
         cr_ratio = calculate_close_to_range_ratio(df)
-        if cr_ratio < 0.6: # Relaxed slightly from 0.75 to 0.6 for volatility
-            logger.info(f"  -> Skipped (Liquidity Trap! CR_Ratio={cr_ratio:.2f})")
-            continue
+        passes_cr = bool(cr_ratio >= 0.6)
 
-        if market_cap and (market_cap < min_mcap or market_cap > max_mcap):
-            logger.info(f"  -> Skipped (MCap=${market_cap:,.0f} out of range)")
-            continue
+        # Composite Result Status
+        passes_all = bool(passes_rvol and passes_atr and passes_trend and passes_cr)
 
         # V3 Machine-Learned Composite score + ATR Quality Factor
         atr_value = calculate_atr_value(df)
@@ -424,8 +415,21 @@ def scan_momentum(
         # If volume spikes > 3x, we boost the score significantly
         velocity_bonus = 1.5 if volume_mult > 3.0 else 1.0
         
+        # V3 Prediction: Divergence Pulse (High Volume + Tight Consolidation near VWAP)
+        # Pulse is high when volume spikes but price is still close to VWAP (accumulation)
+        pulse_score = (float(volume_mult) / 1.5) * (2.0 / (abs(float(vwap_dist or 0)) + 1.0))
+        pulse_score = round(min(pulse_score, 10.0), 2)
+
         raw_score = ((rvol_norm * W_RVOL) + (atr_norm * W_ATR) + (vwap_norm * W_VWAP)) * (gap_bonus * W_GAP)
         score = raw_score * 100 * sector_mult * quality_mult * velocity_bonus
+        
+        # Boost score slightly if Pulse is extreme (> 5.0)
+        if pulse_score > 5.0:
+            score *= 1.2
+            
+        # Penalty for failing core momentum filters (keeps them at bottom of list)
+        if not passes_all:
+            score *= 0.1
 
         signal = {
             "ticker": ticker,
@@ -445,6 +449,14 @@ def scan_momentum(
             "vwap_multiplier": vwap_mult,
             "gap_bonus": gap_bonus,
             "score": round(float(score), 2),
+            "pulse_score": pulse_score,
+            "passes_filters": passes_all,
+            "filters": {
+                "rvol": passes_rvol,
+                "atr": passes_atr,
+                "trend": passes_trend,
+                "cr": passes_cr
+            },
             "recent_volume": float(df["Volume"].iloc[-1]),
             "cr_ratio": round(float(cr_ratio), 2),
             "scanned_at": datetime.now().isoformat()
@@ -491,7 +503,7 @@ def calculate_volume_velocity(df):
     return recent_vol / avg_vol
 
 
-def get_asx_momentum_list(top_n=10):
+def get_asx_momentum_list(top_n=20):
     """
     Public API: Returns the top N momentum candidates.
     Called by the orchestrator.
