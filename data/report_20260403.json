@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-03T00:47:17.700049",
+  "date": "2026-04-03T03:00:42.202731",
   "signals": [
     {
       "ticker": "AAI.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 545893.0,
       "cr_ratio": 0.29,
-      "scanned_at": "2026-04-03T00:43:54.141377",
+      "scanned_at": "2026-04-03T02:56:44.798103",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 9.01,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 1666958.0,
       "cr_ratio": 0.0,
-      "scanned_at": "2026-04-03T00:44:32.829087",
+      "scanned_at": "2026-04-03T02:57:38.082754",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 6.3,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 866731.0,
       "cr_ratio": 0.12,
-      "scanned_at": "2026-04-03T00:44:03.196074",
+      "scanned_at": "2026-04-03T02:56:57.531718",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 5.39,
