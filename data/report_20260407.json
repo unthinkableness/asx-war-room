@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-07T06:56:32.646293",
+  "date": "2026-04-07T08:15:37.756900",
   "signals": [
     {
       "ticker": "PHO.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 1511717.0,
       "cr_ratio": 0.83,
-      "scanned_at": "2026-04-07T06:53:20.027041",
+      "scanned_at": "2026-04-07T08:12:41.321341",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 331.7,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 3892974.0,
       "cr_ratio": 0.83,
-      "scanned_at": "2026-04-07T06:53:13.460288",
+      "scanned_at": "2026-04-07T08:12:37.990966",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 118.73,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 4825223.0,
       "cr_ratio": 0.73,
-      "scanned_at": "2026-04-07T06:53:14.796776",
+      "scanned_at": "2026-04-07T08:12:38.685933",
       "sentiment_score": 1.0,
       "sentiment_posts": 84,
       "momentum_score": 107.31,
@@ -131,7 +131,7 @@
       },
       "recent_volume": 553393.0,
       "cr_ratio": 0.74,
-      "scanned_at": "2026-04-07T06:53:02.845715",
+      "scanned_at": "2026-04-07T08:12:32.116056",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 96.19,
@@ -165,7 +165,7 @@
       },
       "recent_volume": 21734571.0,
       "cr_ratio": 0.5,
-      "scanned_at": "2026-04-07T06:53:12.506843",
+      "scanned_at": "2026-04-07T08:12:37.409619",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 16.14
@@ -198,7 +198,7 @@
       },
       "recent_volume": 1098940.0,
       "cr_ratio": 0.13,
-      "scanned_at": "2026-04-07T06:52:16.043006",
+      "scanned_at": "2026-04-07T08:12:06.836263",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 15.83
@@ -231,7 +231,7 @@
       },
       "recent_volume": 2945992.0,
       "cr_ratio": 0.45,
-      "scanned_at": "2026-04-07T06:53:10.107012",
+      "scanned_at": "2026-04-07T08:12:36.083585",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 13.79
@@ -264,7 +264,7 @@
       },
       "recent_volume": 2509104.0,
       "cr_ratio": 0.0,
-      "scanned_at": "2026-04-07T06:52:56.034591",
+      "scanned_at": "2026-04-07T08:12:28.597233",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 12.82
@@ -297,7 +297,7 @@
       },
       "recent_volume": 3813994.0,
       "cr_ratio": 0.14,
-      "scanned_at": "2026-04-07T06:53:32.175686",
+      "scanned_at": "2026-04-07T08:12:48.291751",
       "sentiment_score": 0.7,
       "sentiment_posts": 78,
       "momentum_score": 12.78
