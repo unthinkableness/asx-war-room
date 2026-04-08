@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-08T06:59:10.807491",
+  "date": "2026-04-08T08:20:19.825113",
   "signals": [
     {
       "ticker": "MMS.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 560862.0,
       "cr_ratio": 0.95,
-      "scanned_at": "2026-04-08T06:56:08.395346",
+      "scanned_at": "2026-04-08T08:16:53.937284",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 184.5,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 19637690.0,
       "cr_ratio": 0.75,
-      "scanned_at": "2026-04-08T06:56:17.953485",
+      "scanned_at": "2026-04-08T08:17:13.415448",
       "sentiment_score": 1.0,
       "sentiment_posts": 82,
       "momentum_score": 170.13,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 408296.0,
       "cr_ratio": 0.69,
-      "scanned_at": "2026-04-08T06:55:33.252432",
+      "scanned_at": "2026-04-08T08:16:02.099238",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 117.26,
@@ -131,7 +131,7 @@
       },
       "recent_volume": 652524.0,
       "cr_ratio": 0.9,
-      "scanned_at": "2026-04-08T06:56:06.363486",
+      "scanned_at": "2026-04-08T08:16:50.668787",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 115.46,
