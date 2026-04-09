@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-09T06:56:30.666162",
+  "date": "2026-04-09T08:24:00.558679",
   "signals": [
     {
       "ticker": "ALK.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 8923350.0,
       "cr_ratio": 0.93,
-      "scanned_at": "2026-04-09T06:52:42.948059",
+      "scanned_at": "2026-04-09T08:20:23.498125",
       "sentiment_score": 1.0,
       "sentiment_posts": 94,
       "momentum_score": 113.05,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 1756185.0,
       "cr_ratio": 0.85,
-      "scanned_at": "2026-04-09T06:52:56.269742",
+      "scanned_at": "2026-04-09T08:20:35.550029",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 87.16,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 5668973.0,
       "cr_ratio": 0.78,
-      "scanned_at": "2026-04-09T06:52:50.382038",
+      "scanned_at": "2026-04-09T08:20:30.569707",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 20.83,
@@ -131,7 +131,7 @@
       },
       "recent_volume": 1858507.0,
       "cr_ratio": 0.0,
-      "scanned_at": "2026-04-09T06:53:10.317003",
+      "scanned_at": "2026-04-09T08:20:48.343607",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 13.6,
@@ -165,7 +165,7 @@
       },
       "recent_volume": 1362371.0,
       "cr_ratio": 0.99,
-      "scanned_at": "2026-04-09T06:52:48.147119",
+      "scanned_at": "2026-04-09T08:20:28.478939",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 12.24
