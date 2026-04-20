@@ -1,0 +1,84 @@
+{
+  "date": "2026-04-20T03:41:40.045679",
+  "signals": [
+    {
+      "ticker": "ASX.AX",
+      "asx_code": "ASX",
+      "price": 58.81,
+      "rvol": 0.08,
+      "atr_pct": 2.47,
+      "atr_value": 1.4507,
+      "volume_velocity": 0.09,
+      "is_trending": true,
+      "market_cap": 11492054016,
+      "vwap": 53.6799,
+      "vwap_distance_pct": 9.56,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.02,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.15,
+      "pulse_score": 0.01,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 88994.0,
+      "cr_ratio": 0.14,
+      "scanned_at": "2026-04-20T03:38:25.695209",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.15,
+      "initial_volume": 88994.0
+    },
+    {
+      "ticker": "TNE.AX",
+      "asx_code": "TNE",
+      "price": 30.66,
+      "rvol": 0.9,
+      "atr_pct": 4.39,
+      "atr_value": 1.3461,
+      "volume_velocity": 0.68,
+      "is_trending": true,
+      "market_cap": 10037120000,
+      "vwap": 27.7274,
+      "vwap_distance_pct": 10.58,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": -3.34,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 10.92,
+      "pulse_score": 0.08,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": true,
+        "trend": true,
+        "cr": true
+      },
+      "recent_volume": 1006910.0,
+      "cr_ratio": 0.68,
+      "scanned_at": "2026-04-20T03:39:56.248133",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 10.92,
+      "initial_volume": 1006910.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "ASX",
+    "TNE"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
