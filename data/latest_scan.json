@@ -1,5 +1,38 @@
 [
   {
+    "ticker": "IFL.AX",
+    "asx_code": "IFL",
+    "price": 4.79,
+    "rvol": 0.0,
+    "atr_pct": 0.29,
+    "atr_value": 0.0139,
+    "volume_velocity": 0.0,
+    "is_trending": true,
+    "market_cap": 3212778240,
+    "vwap": 4.7645,
+    "vwap_distance_pct": 0.54,
+    "vwap_position": "above",
+    "gap_up": false,
+    "gap_pct": 0.0,
+    "vwap_multiplier": 1.2,
+    "gap_bonus": 1.0,
+    "score": 14.82,
+    "pulse_score": 0.0,
+    "passes_filters": false,
+    "filters": {
+      "rvol": false,
+      "atr": false,
+      "trend": true,
+      "cr": true
+    },
+    "recent_volume": 0.0,
+    "cr_ratio": 1.0,
+    "scanned_at": "2026-04-20T08:26:50.305106",
+    "sentiment_score": 1.0,
+    "sentiment_posts": 76,
+    "momentum_score": 14.82
+  },
+  {
     "ticker": "ASX.AX",
     "asx_code": "ASX",
     "price": 58.795,
@@ -27,7 +60,7 @@
     },
     "recent_volume": 112298.0,
     "cr_ratio": 0.11,
-    "scanned_at": "2026-04-20T06:03:50.808696",
+    "scanned_at": "2026-04-20T08:26:29.958793",
     "sentiment_score": 1.0,
     "sentiment_posts": 76,
     "momentum_score": 11.15
