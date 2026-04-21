@@ -1,0 +1,84 @@
+{
+  "date": "2026-04-21T03:33:22.751550",
+  "signals": [
+    {
+      "ticker": "ASX.AX",
+      "asx_code": "ASX",
+      "price": 59.46,
+      "rvol": 0.15,
+      "atr_pct": 2.4,
+      "atr_value": 1.4264,
+      "volume_velocity": 0.14,
+      "is_trending": true,
+      "market_cap": 11619069952,
+      "vwap": 54.2959,
+      "vwap_distance_pct": 9.51,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.73,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.26,
+      "pulse_score": 0.02,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": true
+      },
+      "recent_volume": 129458.0,
+      "cr_ratio": 0.78,
+      "scanned_at": "2026-04-21T03:30:30.650773",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.26,
+      "initial_volume": 129458.0
+    },
+    {
+      "ticker": "AMP.AX",
+      "asx_code": "AMP",
+      "price": 1.477,
+      "rvol": 0.35,
+      "atr_pct": 3.17,
+      "atr_value": 0.0468,
+      "volume_velocity": 0.34,
+      "is_trending": true,
+      "market_cap": 3739379712,
+      "vwap": 1.3302,
+      "vwap_distance_pct": 11.04,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 1.05,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.03,
+      "pulse_score": 0.04,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": true,
+        "trend": true,
+        "cr": true
+      },
+      "recent_volume": 3008904.0,
+      "cr_ratio": 0.91,
+      "scanned_at": "2026-04-21T03:30:24.936478",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.03,
+      "initial_volume": 3008904.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "ASX",
+    "AMP"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
