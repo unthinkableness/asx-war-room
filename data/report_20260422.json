@@ -1,25 +1,25 @@
 {
-  "date": "2026-04-22T05:43:59.691355",
+  "date": "2026-04-22T07:18:10.985316",
   "signals": [
     {
       "ticker": "NXT.AX",
       "asx_code": "NXT",
-      "price": 14.4,
-      "rvol": 5.02,
-      "atr_pct": 4.47,
+      "price": 14.3,
+      "rvol": 7.06,
+      "atr_pct": 4.5,
       "atr_value": 0.6438,
-      "volume_velocity": 3.49,
+      "volume_velocity": 4.91,
       "is_trending": true,
-      "market_cap": 9388180480,
-      "vwap": 12.6674,
-      "vwap_distance_pct": 13.68,
+      "market_cap": 9322985472,
+      "vwap": 12.7665,
+      "vwap_distance_pct": 12.01,
       "vwap_position": "above",
       "gap_up": true,
       "gap_pct": 7.35,
       "vwap_multiplier": 1.2,
       "gap_bonus": 1.5,
-      "score": 15.56,
-      "pulse_score": 0.32,
+      "score": 17.18,
+      "pulse_score": 0.5,
       "passes_filters": false,
       "filters": {
         "rvol": true,
@@ -27,13 +27,13 @@
         "trend": true,
         "cr": false
       },
-      "recent_volume": 7444866.0,
-      "cr_ratio": 0.38,
-      "scanned_at": "2026-04-22T05:40:50.961189",
+      "recent_volume": 10476018.0,
+      "cr_ratio": 0.32,
+      "scanned_at": "2026-04-22T07:15:12.637632",
       "sentiment_score": 1.0,
       "sentiment_posts": 82,
-      "momentum_score": 15.56,
-      "initial_volume": 7444866.0
+      "momentum_score": 17.18,
+      "initial_volume": 10476018.0
     },
     {
       "ticker": "IFL.AX",
@@ -63,7 +63,7 @@
       },
       "recent_volume": 0.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-04-22T05:40:38.264888",
+      "scanned_at": "2026-04-22T07:15:02.046611",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 7.55,
@@ -97,45 +97,11 @@
       },
       "recent_volume": 2928.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-04-22T05:40:28.056719",
+      "scanned_at": "2026-04-22T07:14:54.363108",
       "sentiment_score": 0.7,
       "sentiment_posts": 62,
       "momentum_score": 8.81,
       "initial_volume": 2928.0
-    },
-    {
-      "ticker": "PLT.AX",
-      "asx_code": "PLT",
-      "price": 0.95,
-      "rvol": 2.66,
-      "atr_pct": 6.18,
-      "atr_value": 0.0587,
-      "volume_velocity": 0.32,
-      "is_trending": true,
-      "market_cap": 173102272,
-      "vwap": 0.7862,
-      "vwap_distance_pct": 20.83,
-      "vwap_position": "above",
-      "gap_up": false,
-      "gap_pct": 9.29,
-      "vwap_multiplier": 1.2,
-      "gap_bonus": 1.0,
-      "score": 5.9,
-      "pulse_score": 0.02,
-      "passes_filters": false,
-      "filters": {
-        "rvol": true,
-        "atr": true,
-        "trend": true,
-        "cr": false
-      },
-      "recent_volume": 137662.0,
-      "cr_ratio": 0.23,
-      "scanned_at": "2026-04-22T05:40:54.432344",
-      "sentiment_score": 1.0,
-      "sentiment_posts": 76,
-      "momentum_score": 5.9,
-      "initial_volume": 137662.0
     },
     {
       "ticker": "BOC.AX",
@@ -165,10 +131,11 @@
       },
       "recent_volume": 0.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-04-22T05:40:16.683635",
+      "scanned_at": "2026-04-22T07:14:44.669266",
       "sentiment_score": 0.8,
       "sentiment_posts": 82,
-      "momentum_score": 7.11
+      "momentum_score": 7.11,
+      "initial_volume": 0.0
     }
   ],
   "sell_orders": [],
@@ -176,7 +143,7 @@
     "NXT",
     "IFL",
     "DGH",
-    "PLT"
+    "BOC"
   ],
   "portfolio": {
     "last_updated": null,
