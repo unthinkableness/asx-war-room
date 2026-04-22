@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-22T07:18:10.985316",
+  "date": "2026-04-22T09:03:23.573083",
   "signals": [
     {
       "ticker": "NXT.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 10476018.0,
       "cr_ratio": 0.32,
-      "scanned_at": "2026-04-22T07:15:12.637632",
+      "scanned_at": "2026-04-22T09:00:57.572806",
       "sentiment_score": 1.0,
       "sentiment_posts": 82,
       "momentum_score": 17.18,
@@ -40,8 +40,8 @@
       "asx_code": "IFL",
       "price": 4.79,
       "rvol": 0.0,
-      "atr_pct": 0.28,
-      "atr_value": 0.0132,
+      "atr_pct": 0.26,
+      "atr_value": 0.0125,
       "volume_velocity": 0.0,
       "is_trending": true,
       "market_cap": 3212778240,
@@ -52,7 +52,7 @@
       "gap_pct": 0.0,
       "vwap_multiplier": 1.2,
       "gap_bonus": 1.0,
-      "score": 7.55,
+      "score": 7.77,
       "pulse_score": 0.0,
       "passes_filters": false,
       "filters": {
@@ -63,10 +63,10 @@
       },
       "recent_volume": 0.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-04-22T07:15:02.046611",
+      "scanned_at": "2026-04-22T09:00:47.005469",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
-      "momentum_score": 7.55,
+      "momentum_score": 7.77,
       "initial_volume": 0.0
     },
     {
@@ -97,53 +97,18 @@
       },
       "recent_volume": 2928.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-04-22T07:14:54.363108",
+      "scanned_at": "2026-04-22T09:00:39.435419",
       "sentiment_score": 0.7,
       "sentiment_posts": 62,
       "momentum_score": 8.81,
       "initial_volume": 2928.0
-    },
-    {
-      "ticker": "BOC.AX",
-      "asx_code": "BOC",
-      "price": 0.635,
-      "rvol": 0.0,
-      "atr_pct": 0.22,
-      "atr_value": 0.0014,
-      "volume_velocity": 0.0,
-      "is_trending": true,
-      "market_cap": 254674688,
-      "vwap": 0.6425,
-      "vwap_distance_pct": -1.17,
-      "vwap_position": "below",
-      "gap_up": false,
-      "gap_pct": 0.0,
-      "vwap_multiplier": 0.8,
-      "gap_bonus": 1.0,
-      "score": 5.69,
-      "pulse_score": 0.0,
-      "passes_filters": false,
-      "filters": {
-        "rvol": false,
-        "atr": false,
-        "trend": false,
-        "cr": true
-      },
-      "recent_volume": 0.0,
-      "cr_ratio": 1.0,
-      "scanned_at": "2026-04-22T07:14:44.669266",
-      "sentiment_score": 0.8,
-      "sentiment_posts": 82,
-      "momentum_score": 7.11,
-      "initial_volume": 0.0
     }
   ],
   "sell_orders": [],
   "buy_orders": [
     "NXT",
     "IFL",
-    "DGH",
-    "BOC"
+    "DGH"
   ],
   "portfolio": {
     "last_updated": null,
