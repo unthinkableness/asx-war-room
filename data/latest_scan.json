@@ -27,7 +27,7 @@
     },
     "recent_volume": 4321818.0,
     "cr_ratio": 0.94,
-    "scanned_at": "2026-04-23T07:51:52.889395",
+    "scanned_at": "2026-04-23T09:24:06.567617",
     "sentiment_score": 1.0,
     "sentiment_posts": 82,
     "momentum_score": 116.8
@@ -37,8 +37,8 @@
     "asx_code": "IFL",
     "price": 4.79,
     "rvol": 0.0,
-    "atr_pct": 0.26,
-    "atr_value": 0.0125,
+    "atr_pct": 0.23,
+    "atr_value": 0.0111,
     "volume_velocity": 0.0,
     "is_trending": true,
     "market_cap": 3212778240,
@@ -49,7 +49,7 @@
     "gap_pct": 0.0,
     "vwap_multiplier": 1.2,
     "gap_bonus": 1.0,
-    "score": 15.54,
+    "score": 16.55,
     "pulse_score": 0.0,
     "passes_filters": false,
     "filters": {
@@ -60,42 +60,9 @@
     },
     "recent_volume": 0.0,
     "cr_ratio": 1.0,
-    "scanned_at": "2026-04-23T07:51:42.342560",
+    "scanned_at": "2026-04-23T09:23:51.224496",
     "sentiment_score": 1.0,
     "sentiment_posts": 76,
-    "momentum_score": 15.54
-  },
-  {
-    "ticker": "ASX.AX",
-    "asx_code": "ASX",
-    "price": 59.24,
-    "rvol": 0.68,
-    "atr_pct": 2.13,
-    "atr_value": 1.2646,
-    "volume_velocity": 0.59,
-    "is_trending": true,
-    "market_cap": 11576080384,
-    "vwap": 54.679,
-    "vwap_distance_pct": 8.34,
-    "vwap_position": "above",
-    "gap_up": false,
-    "gap_pct": 0.25,
-    "vwap_multiplier": 1.2,
-    "gap_bonus": 1.0,
-    "score": 11.37,
-    "pulse_score": 0.08,
-    "passes_filters": false,
-    "filters": {
-      "rvol": false,
-      "atr": false,
-      "trend": true,
-      "cr": true
-    },
-    "recent_volume": 539006.0,
-    "cr_ratio": 0.85,
-    "scanned_at": "2026-04-23T07:51:21.256798",
-    "sentiment_score": 1.0,
-    "sentiment_posts": 76,
-    "momentum_score": 11.37
+    "momentum_score": 16.55
   }
 ]
