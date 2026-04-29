@@ -1,0 +1,84 @@
+{
+  "date": "2026-04-29T03:50:42.165603",
+  "signals": [
+    {
+      "ticker": "OML.AX",
+      "asx_code": "OML",
+      "price": 1.195,
+      "rvol": 10.18,
+      "atr_pct": 4.59,
+      "atr_value": 0.0548,
+      "volume_velocity": 9.75,
+      "is_trending": true,
+      "market_cap": 637551168,
+      "vwap": 1.0142,
+      "vwap_distance_pct": 17.83,
+      "vwap_position": "above",
+      "gap_up": true,
+      "gap_pct": 42.35,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.5,
+      "score": 38.97,
+      "pulse_score": 0.69,
+      "passes_filters": false,
+      "filters": {
+        "rvol": true,
+        "atr": true,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 11565367.0,
+      "cr_ratio": 0.52,
+      "scanned_at": "2026-04-29T03:48:47.741190",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 38.97,
+      "initial_volume": 11565367.0
+    },
+    {
+      "ticker": "IFL.AX",
+      "asx_code": "IFL",
+      "price": 4.79,
+      "rvol": 0.0,
+      "atr_pct": 0.13,
+      "atr_value": 0.0061,
+      "volume_velocity": 0.0,
+      "is_trending": true,
+      "market_cap": 3212778240,
+      "vwap": 4.7812,
+      "vwap_distance_pct": 0.18,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.0,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 21.66,
+      "pulse_score": 0.0,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": true
+      },
+      "recent_volume": 0.0,
+      "cr_ratio": 1.0,
+      "scanned_at": "2026-04-29T03:48:36.836663",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 21.66,
+      "initial_volume": 0.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "OML",
+    "IFL"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
