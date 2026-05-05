@@ -1,0 +1,84 @@
+{
+  "date": "2026-05-05T03:37:36.404381",
+  "signals": [
+    {
+      "ticker": "PBH.AX",
+      "asx_code": "PBH",
+      "price": 1.017,
+      "rvol": 6.1,
+      "atr_pct": 4.71,
+      "atr_value": 0.0479,
+      "volume_velocity": 5.96,
+      "is_trending": true,
+      "market_cap": 352800800,
+      "vwap": 0.9697,
+      "vwap_distance_pct": 4.88,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.99,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 18.13,
+      "pulse_score": 1.35,
+      "passes_filters": false,
+      "filters": {
+        "rvol": true,
+        "atr": true,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 323819.0,
+      "cr_ratio": 0.35,
+      "scanned_at": "2026-05-05T03:35:46.579339",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 18.13,
+      "initial_volume": 323819.0
+    },
+    {
+      "ticker": "MMS.AX",
+      "asx_code": "MMS",
+      "price": 16.54,
+      "rvol": 1.34,
+      "atr_pct": 1.97,
+      "atr_value": 0.3257,
+      "volume_velocity": 1.19,
+      "is_trending": true,
+      "market_cap": 1117770496,
+      "vwap": 15.6279,
+      "vwap_distance_pct": 5.84,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": -0.31,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 10.74,
+      "pulse_score": 0.23,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": true
+      },
+      "recent_volume": 249646.0,
+      "cr_ratio": 0.79,
+      "scanned_at": "2026-05-05T03:35:39.399688",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 78,
+      "momentum_score": 10.74,
+      "initial_volume": 249646.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "PBH",
+    "MMS"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
