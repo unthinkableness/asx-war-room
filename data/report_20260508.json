@@ -1,0 +1,84 @@
+{
+  "date": "2026-05-08T03:43:14.942857",
+  "signals": [
+    {
+      "ticker": "MMS.AX",
+      "asx_code": "MMS",
+      "price": 18.45,
+      "rvol": 1.59,
+      "atr_pct": 2.31,
+      "atr_value": 0.4264,
+      "volume_velocity": 1.89,
+      "is_trending": true,
+      "market_cap": 1284913792,
+      "vwap": 16.3009,
+      "vwap_distance_pct": 13.18,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.0,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 6.41,
+      "pulse_score": 0.18,
+      "passes_filters": false,
+      "filters": {
+        "rvol": true,
+        "atr": false,
+        "trend": true,
+        "cr": true
+      },
+      "recent_volume": 467054.0,
+      "cr_ratio": 0.62,
+      "scanned_at": "2026-05-08T03:40:53.200318",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 78,
+      "momentum_score": 6.41,
+      "initial_volume": 467054.0
+    },
+    {
+      "ticker": "IFT.AX",
+      "asx_code": "IFT",
+      "price": 12.38,
+      "rvol": 0.27,
+      "atr_pct": 2.45,
+      "atr_value": 0.3036,
+      "volume_velocity": 0.31,
+      "is_trending": true,
+      "market_cap": 12345272320,
+      "vwap": 10.6544,
+      "vwap_distance_pct": 16.2,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": -0.32,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 5.78,
+      "pulse_score": 0.02,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 117485.0,
+      "cr_ratio": 0.39,
+      "scanned_at": "2026-05-08T03:40:43.057275",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 5.78,
+      "initial_volume": 117485.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "MMS",
+    "IFT"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
