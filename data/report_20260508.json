@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-08T07:15:08.496805",
+  "date": "2026-05-08T08:54:10.120617",
   "signals": [
     {
       "ticker": "KLS.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 1003475.0,
       "cr_ratio": 0.77,
-      "scanned_at": "2026-05-08T07:12:25.664943",
+      "scanned_at": "2026-05-08T08:51:33.047613",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 42.66,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 772590.0,
       "cr_ratio": 0.68,
-      "scanned_at": "2026-05-08T07:12:27.913514",
+      "scanned_at": "2026-05-08T08:51:34.986114",
       "sentiment_score": 1.0,
       "sentiment_posts": 78,
       "momentum_score": 10.26,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 263936.0,
       "cr_ratio": 0.5,
-      "scanned_at": "2026-05-08T07:12:19.986207",
+      "scanned_at": "2026-05-08T08:51:28.689248",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 5.92,
