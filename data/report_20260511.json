@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-11T07:58:11.652340",
+  "date": "2026-05-11T11:30:28.286194",
   "signals": [
     {
       "ticker": "PDN.AX",
@@ -18,7 +18,7 @@
       "gap_pct": -1.28,
       "vwap_multiplier": 1.2,
       "gap_bonus": 1.0,
-      "score": 72.34,
+      "score": 67.61,
       "pulse_score": 0.86,
       "passes_filters": true,
       "filters": {
@@ -29,8 +29,8 @@
       },
       "recent_volume": 3835965.0,
       "cr_ratio": 0.86,
-      "scanned_at": "2026-05-11T07:55:30.901150",
-      "sentiment_score": 0.978,
+      "scanned_at": "2026-05-11T11:28:04.071785",
+      "sentiment_score": 0.914,
       "sentiment_posts": 82,
       "momentum_score": 73.97,
       "initial_volume": 3835965.0
@@ -63,7 +63,7 @@
       },
       "recent_volume": 2246612.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-05-11T07:54:09.147860",
+      "scanned_at": "2026-05-11T11:27:13.282258",
       "sentiment_score": 1.0,
       "sentiment_posts": 80,
       "momentum_score": 63.02,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 6327326.0,
       "cr_ratio": 0.87,
-      "scanned_at": "2026-05-11T07:55:26.233064",
+      "scanned_at": "2026-05-11T11:28:00.342881",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 16.55,
