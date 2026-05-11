@@ -1,0 +1,84 @@
+{
+  "date": "2026-05-11T04:11:17.382487",
+  "signals": [
+    {
+      "ticker": "MMS.AX",
+      "asx_code": "MMS",
+      "price": 18.32,
+      "rvol": 0.52,
+      "atr_pct": 2.45,
+      "atr_value": 0.4486,
+      "volume_velocity": 0.69,
+      "is_trending": true,
+      "market_cap": 1275860224,
+      "vwap": 16.6099,
+      "vwap_distance_pct": 10.3,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": -0.54,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.77,
+      "pulse_score": 0.08,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 188372.0,
+      "cr_ratio": 0.58,
+      "scanned_at": "2026-05-11T04:09:16.956162",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 78,
+      "momentum_score": 11.77,
+      "initial_volume": 188372.0
+    },
+    {
+      "ticker": "IFT.AX",
+      "asx_code": "IFT",
+      "price": 12.88,
+      "rvol": 0.33,
+      "atr_pct": 2.57,
+      "atr_value": 0.3314,
+      "volume_velocity": 0.36,
+      "is_trending": true,
+      "market_cap": 12843869184,
+      "vwap": 10.8288,
+      "vwap_distance_pct": 18.94,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.73,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.48,
+      "pulse_score": 0.02,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": true,
+        "trend": true,
+        "cr": true
+      },
+      "recent_volume": 137929.0,
+      "cr_ratio": 0.72,
+      "scanned_at": "2026-05-11T04:09:11.220589",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.48,
+      "initial_volume": 137929.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "MMS",
+    "IFT"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
