@@ -27,7 +27,7 @@
     },
     "recent_volume": 14122809.0,
     "cr_ratio": 0.81,
-    "scanned_at": "2026-05-12T06:36:07.413918",
+    "scanned_at": "2026-05-12T09:21:55.800816",
     "sentiment_score": 1.0,
     "sentiment_posts": 76,
     "momentum_score": 80.53
@@ -60,7 +60,7 @@
     },
     "recent_volume": 514832.0,
     "cr_ratio": 0.82,
-    "scanned_at": "2026-05-12T06:35:44.210540",
+    "scanned_at": "2026-05-12T09:21:29.088884",
     "sentiment_score": 1.0,
     "sentiment_posts": 76,
     "momentum_score": 69.06
@@ -93,7 +93,7 @@
     },
     "recent_volume": 369499.0,
     "cr_ratio": 0.19,
-    "scanned_at": "2026-05-12T06:36:08.142004",
+    "scanned_at": "2026-05-12T09:21:56.489921",
     "sentiment_score": 1.0,
     "sentiment_posts": 76,
     "momentum_score": 11.75
@@ -108,7 +108,7 @@
     "volume_velocity": 1.59,
     "is_trending": true,
     "market_cap": 301522911232,
-    "vwap": 174.2711,
+    "vwap": 174.2714,
     "vwap_distance_pct": 6.4,
     "vwap_position": "above",
     "gap_up": false,
@@ -124,9 +124,9 @@
       "trend": true,
       "cr": true
     },
-    "recent_volume": 1713775.0,
+    "recent_volume": 1714516.0,
     "cr_ratio": 0.89,
-    "scanned_at": "2026-05-12T06:36:25.628613",
+    "scanned_at": "2026-05-12T09:22:17.307234",
     "sentiment_score": 1.0,
     "sentiment_posts": 76,
     "momentum_score": 11.07
