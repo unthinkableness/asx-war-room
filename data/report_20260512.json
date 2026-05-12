@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-12T03:54:21.372925",
+  "signals": [
+    {
+      "ticker": "IFT.AX",
+      "asx_code": "IFT",
+      "price": 12.68,
+      "rvol": 0.43,
+      "atr_pct": 2.71,
+      "atr_value": 0.3436,
+      "volume_velocity": 0.5,
+      "is_trending": true,
+      "market_cap": 12644430848,
+      "vwap": 10.9179,
+      "vwap_distance_pct": 16.14,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": -0.39,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.44,
+      "pulse_score": 0.04,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": true,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 189360.0,
+      "cr_ratio": 0.48,
+      "scanned_at": "2026-05-12T03:52:52.673987",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.44,
+      "initial_volume": 189360.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "IFT"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
