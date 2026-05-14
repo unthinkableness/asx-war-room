@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-14T06:55:51.405148",
+  "date": "2026-05-14T09:36:13.584224",
   "signals": [
     {
       "ticker": "PHO.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 1306992.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-05-14T06:52:39.172834",
+      "scanned_at": "2026-05-14T09:33:00.754854",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 277.49,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 8442390.0,
       "cr_ratio": 0.74,
-      "scanned_at": "2026-05-14T06:52:41.433870",
+      "scanned_at": "2026-05-14T09:33:04.415661",
       "sentiment_score": 1.0,
       "sentiment_posts": 106,
       "momentum_score": 200.58,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 281449.0,
       "cr_ratio": 0.61,
-      "scanned_at": "2026-05-14T06:52:35.286166",
+      "scanned_at": "2026-05-14T09:32:56.267503",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 103.16,
@@ -131,7 +131,7 @@
       },
       "recent_volume": 1010335.0,
       "cr_ratio": 0.77,
-      "scanned_at": "2026-05-14T06:52:46.447034",
+      "scanned_at": "2026-05-14T09:33:10.078039",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 11.92,
