@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-15T07:36:46.140342",
+  "date": "2026-05-15T10:07:09.488657",
   "signals": [
     {
       "ticker": "PNV.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 4795964.0,
       "cr_ratio": 0.93,
-      "scanned_at": "2026-05-15T07:34:02.017951",
+      "scanned_at": "2026-05-15T10:04:46.642819",
       "sentiment_score": 1.0,
       "sentiment_posts": 106,
       "momentum_score": 114.68,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 261269.0,
       "cr_ratio": 0.43,
-      "scanned_at": "2026-05-15T07:33:29.303339",
+      "scanned_at": "2026-05-15T10:04:32.208296",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 11.29,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 426083.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-05-15T07:33:59.037945",
+      "scanned_at": "2026-05-15T10:04:45.345079",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 10.69,
