@@ -1,0 +1,84 @@
+{
+  "date": "2026-06-05T04:27:16.270334",
+  "signals": [
+    {
+      "ticker": "TNE.AX",
+      "asx_code": "TNE",
+      "price": 32.44,
+      "rvol": 1.08,
+      "atr_pct": 3.75,
+      "atr_value": 1.2158,
+      "volume_velocity": 1.0,
+      "is_trending": true,
+      "market_cap": 10619835392,
+      "vwap": 29.4355,
+      "vwap_distance_pct": 10.21,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.4,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.27,
+      "pulse_score": 0.12,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": true,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 1256148.0,
+      "cr_ratio": 0.59,
+      "scanned_at": "2026-06-05T04:25:41.078281",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.27,
+      "initial_volume": 1256148.0
+    },
+    {
+      "ticker": "PHO.AX",
+      "asx_code": "PHO",
+      "price": 0.177,
+      "rvol": 0.93,
+      "atr_pct": 3.85,
+      "atr_value": 0.0068,
+      "volume_velocity": 0.58,
+      "is_trending": true,
+      "market_cap": 92856128,
+      "vwap": 0.1545,
+      "vwap_distance_pct": 14.56,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.0,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.12,
+      "pulse_score": 0.05,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": true,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 294381.0,
+      "cr_ratio": 0.0,
+      "scanned_at": "2026-06-05T04:25:27.617731",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.12,
+      "initial_volume": 294381.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "TNE",
+    "PHO"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
