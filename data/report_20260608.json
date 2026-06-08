@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-08T04:51:58.019950",
+  "date": "2026-06-08T09:19:12.111952",
   "signals": [
     {
       "ticker": "ORE.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 723064.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-06-08T04:49:24.573970",
+      "scanned_at": "2026-06-08T09:16:43.258963",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 108.23,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 16345666.0,
       "cr_ratio": 0.33,
-      "scanned_at": "2026-06-08T04:49:22.368861",
+      "scanned_at": "2026-06-08T09:16:41.680657",
       "sentiment_score": 1.0,
       "sentiment_posts": 82,
       "momentum_score": 16.02,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 1693003.0,
       "cr_ratio": 0.37,
-      "scanned_at": "2026-06-08T04:49:46.922524",
+      "scanned_at": "2026-06-08T09:16:59.478586",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 11.38,
