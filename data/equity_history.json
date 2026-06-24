@@ -988,5 +988,11 @@
     "total_value": 50000.0,
     "cash": 50000.0,
     "holdings_count": 0
+  },
+  {
+    "date": "2026-06-24T07:55:46.882890",
+    "total_value": 50000.0,
+    "cash": 50000.0,
+    "holdings_count": 0
   }
 ]
