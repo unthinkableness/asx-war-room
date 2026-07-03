@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-03T07:27:11.755390",
+  "date": "2026-07-03T10:17:07.501428",
   "signals": [
     {
       "ticker": "QUB.AX",
@@ -29,7 +29,7 @@
       },
       "recent_volume": 8585204.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-07-03T07:24:40.735913",
+      "scanned_at": "2026-07-03T10:14:47.344840",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 15.23,
@@ -63,7 +63,7 @@
       },
       "recent_volume": 1134346.0,
       "cr_ratio": 0.7,
-      "scanned_at": "2026-07-03T07:24:41.974344",
+      "scanned_at": "2026-07-03T10:14:48.275576",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 12.54,
@@ -97,7 +97,7 @@
       },
       "recent_volume": 7262175.0,
       "cr_ratio": 0.9,
-      "scanned_at": "2026-07-03T07:23:40.309810",
+      "scanned_at": "2026-07-03T10:14:05.578085",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 11.56,
