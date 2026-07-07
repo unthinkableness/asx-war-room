@@ -1,0 +1,84 @@
+{
+  "date": "2026-07-07T04:06:18.157384",
+  "signals": [
+    {
+      "ticker": "QUB.AX",
+      "asx_code": "QUB",
+      "price": 5.115,
+      "rvol": 0.72,
+      "atr_pct": 0.28,
+      "atr_value": 0.0143,
+      "volume_velocity": 0.72,
+      "is_trending": true,
+      "market_cap": 9055656960,
+      "vwap": 5.0976,
+      "vwap_distance_pct": 0.34,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.2,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 16.39,
+      "pulse_score": 0.72,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 6977173.0,
+      "cr_ratio": 0.5,
+      "scanned_at": "2026-07-07T04:04:13.030997",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 16.39,
+      "initial_volume": 6977173.0
+    },
+    {
+      "ticker": "ALL.AX",
+      "asx_code": "ALL",
+      "price": 62.11,
+      "rvol": 0.15,
+      "atr_pct": 2.43,
+      "atr_value": 1.5111,
+      "volume_velocity": 0.17,
+      "is_trending": true,
+      "market_cap": 37377339392,
+      "vwap": 56.8738,
+      "vwap_distance_pct": 9.21,
+      "vwap_position": "above",
+      "gap_up": false,
+      "gap_pct": 0.63,
+      "vwap_multiplier": 1.2,
+      "gap_bonus": 1.0,
+      "score": 11.06,
+      "pulse_score": 0.02,
+      "passes_filters": false,
+      "filters": {
+        "rvol": false,
+        "atr": false,
+        "trend": true,
+        "cr": false
+      },
+      "recent_volume": 375402.0,
+      "cr_ratio": 0.52,
+      "scanned_at": "2026-07-07T04:02:51.486897",
+      "sentiment_score": 1.0,
+      "sentiment_posts": 76,
+      "momentum_score": 11.06,
+      "initial_volume": 375402.0
+    }
+  ],
+  "sell_orders": [],
+  "buy_orders": [
+    "QUB",
+    "ALL"
+  ],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
