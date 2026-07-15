@@ -1,40 +1,6 @@
 {
-  "date": "2026-07-15T03:00:43.161162",
+  "date": "2026-07-15T05:41:59.136265",
   "signals": [
-    {
-      "ticker": "CIA.AX",
-      "asx_code": "CIA",
-      "price": 4.08,
-      "rvol": 2.33,
-      "atr_pct": 3.23,
-      "atr_value": 0.1318,
-      "volume_velocity": 2.33,
-      "is_trending": true,
-      "market_cap": 2284991232,
-      "vwap": 3.9747,
-      "vwap_distance_pct": 2.65,
-      "vwap_position": "above",
-      "gap_up": false,
-      "gap_pct": 1.26,
-      "vwap_multiplier": 1.2,
-      "gap_bonus": 1.0,
-      "score": 87.57,
-      "pulse_score": 0.85,
-      "passes_filters": true,
-      "filters": {
-        "rvol": true,
-        "atr": true,
-        "trend": true,
-        "cr": true
-      },
-      "recent_volume": 5691974.0,
-      "cr_ratio": 0.62,
-      "scanned_at": "2026-07-15T02:57:43.861659",
-      "sentiment_score": 1.0,
-      "sentiment_posts": 76,
-      "momentum_score": 87.57,
-      "initial_volume": 5691974.0
-    },
     {
       "ticker": "QUB.AX",
       "asx_code": "QUB",
@@ -63,7 +29,7 @@
       },
       "recent_volume": 0.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-07-15T02:58:17.479902",
+      "scanned_at": "2026-07-15T05:40:03.831756",
       "sentiment_score": 1.0,
       "sentiment_posts": 76,
       "momentum_score": 16.3,
@@ -97,7 +63,7 @@
       },
       "recent_volume": 3219.0,
       "cr_ratio": 1.0,
-      "scanned_at": "2026-07-15T02:57:49.936188",
+      "scanned_at": "2026-07-15T05:39:37.963019",
       "sentiment_score": 0.7,
       "sentiment_posts": 56,
       "momentum_score": 21.03,
@@ -106,7 +72,6 @@
   ],
   "sell_orders": [],
   "buy_orders": [
-    "CIA",
     "QUB",
     "DGH"
   ],
