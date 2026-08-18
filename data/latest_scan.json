@@ -8,7 +8,7 @@
     "atr_value": 4.7029,
     "volume_velocity": 3.16,
     "is_trending": true,
-    "market_cap": 75581890560,
+    "market_cap": 0,
     "vwap": 131.1206,
     "vwap_distance_pct": 20.36,
     "vwap_position": "above",
@@ -27,7 +27,7 @@
     },
     "recent_volume": 3698476.0,
     "cr_ratio": 0.87,
-    "scanned_at": "2026-08-18T07:00:28.871396",
+    "scanned_at": "2026-08-18T07:49:00.049479",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -59,7 +59,7 @@
     },
     "recent_volume": 825400.0,
     "cr_ratio": 0.95,
-    "scanned_at": "2026-08-18T07:00:27.955492",
+    "scanned_at": "2026-08-18T07:48:58.065916",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -80,7 +80,7 @@
     "gap_pct": 3.37,
     "vwap_multiplier": 1.2,
     "gap_bonus": 1.5,
-    "score": 135.03,
+    "score": 135.02,
     "pulse_score": 0.97,
     "passes_filters": true,
     "filters": {
@@ -89,9 +89,9 @@
       "trend": true,
       "cr": true
     },
-    "recent_volume": 6269109.0,
+    "recent_volume": 6266268.0,
     "cr_ratio": 0.88,
-    "scanned_at": "2026-08-18T07:00:11.663538",
+    "scanned_at": "2026-08-18T07:48:23.662963",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -123,7 +123,7 @@
     },
     "recent_volume": 605208.0,
     "cr_ratio": 0.86,
-    "scanned_at": "2026-08-18T07:00:48.087667",
+    "scanned_at": "2026-08-18T07:49:41.991798",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -155,7 +155,7 @@
     },
     "recent_volume": 2164608.0,
     "cr_ratio": 0.93,
-    "scanned_at": "2026-08-18T07:00:12.716653",
+    "scanned_at": "2026-08-18T07:48:25.945434",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -187,7 +187,7 @@
     },
     "recent_volume": 208294.0,
     "cr_ratio": 0.93,
-    "scanned_at": "2026-08-18T07:00:29.538426",
+    "scanned_at": "2026-08-18T07:49:01.772812",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -219,7 +219,7 @@
     },
     "recent_volume": 650783.0,
     "cr_ratio": 0.85,
-    "scanned_at": "2026-08-18T07:00:18.284666",
+    "scanned_at": "2026-08-18T07:48:36.761125",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -251,7 +251,7 @@
     },
     "recent_volume": 930952.0,
     "cr_ratio": 0.96,
-    "scanned_at": "2026-08-18T07:00:13.653455",
+    "scanned_at": "2026-08-18T07:48:27.768962",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -283,7 +283,7 @@
     },
     "recent_volume": 2563579.0,
     "cr_ratio": 0.74,
-    "scanned_at": "2026-08-18T07:00:37.980000",
+    "scanned_at": "2026-08-18T07:49:20.002217",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -315,7 +315,7 @@
     },
     "recent_volume": 1767111.0,
     "cr_ratio": 0.22,
-    "scanned_at": "2026-08-18T07:00:12.886307",
+    "scanned_at": "2026-08-18T07:48:26.377494",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   }
