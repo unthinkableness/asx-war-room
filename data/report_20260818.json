@@ -1,0 +1,12 @@
+{
+  "date": "2026-08-18T01:40:11.674956",
+  "signals": [],
+  "sell_orders": [],
+  "buy_orders": [],
+  "portfolio": {
+    "last_updated": null,
+    "cash_balance": 50000.0,
+    "holdings": [],
+    "watchlist": []
+  }
+}
