@@ -27,7 +27,7 @@
     },
     "recent_volume": 3878768.0,
     "cr_ratio": 1.0,
-    "scanned_at": "2026-08-19T07:03:04.765942",
+    "scanned_at": "2026-08-19T07:50:37.285070",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -59,7 +59,7 @@
     },
     "recent_volume": 1066343.0,
     "cr_ratio": 1.0,
-    "scanned_at": "2026-08-19T07:03:13.959339",
+    "scanned_at": "2026-08-19T07:50:42.744993",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -67,20 +67,20 @@
     "ticker": "CUV.AX",
     "asx_code": "CUV",
     "price": 10.4,
-    "rvol": 1.79,
+    "rvol": 1.82,
     "atr_pct": 3.36,
     "atr_value": 0.3489,
-    "volume_velocity": 1.64,
+    "volume_velocity": 1.67,
     "is_trending": true,
     "market_cap": 524450144,
-    "vwap": 9.7607,
-    "vwap_distance_pct": 6.55,
+    "vwap": 9.7613,
+    "vwap_distance_pct": 6.54,
     "vwap_position": "above",
     "gap_up": false,
     "gap_pct": -0.29,
     "vwap_multiplier": 1.2,
     "gap_bonus": 1.0,
-    "score": 102.69,
+    "score": 102.87,
     "pulse_score": 0.29,
     "passes_filters": true,
     "filters": {
@@ -89,9 +89,9 @@
       "trend": true,
       "cr": true
     },
-    "recent_volume": 147481.0,
+    "recent_volume": 150050.0,
     "cr_ratio": 0.8,
-    "scanned_at": "2026-08-19T07:03:06.548778",
+    "scanned_at": "2026-08-19T07:50:38.301495",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -123,7 +123,7 @@
     },
     "recent_volume": 2156347.0,
     "cr_ratio": 0.84,
-    "scanned_at": "2026-08-19T07:03:17.385199",
+    "scanned_at": "2026-08-19T07:50:45.285322",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -155,7 +155,7 @@
     },
     "recent_volume": 1109606.0,
     "cr_ratio": 0.83,
-    "scanned_at": "2026-08-19T07:03:26.039573",
+    "scanned_at": "2026-08-19T07:50:51.019294",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -187,7 +187,7 @@
     },
     "recent_volume": 35843780.0,
     "cr_ratio": 0.56,
-    "scanned_at": "2026-08-19T07:03:32.806320",
+    "scanned_at": "2026-08-19T07:50:55.459372",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -219,7 +219,7 @@
     },
     "recent_volume": 339173.0,
     "cr_ratio": 0.44,
-    "scanned_at": "2026-08-19T07:03:11.948575",
+    "scanned_at": "2026-08-19T07:50:41.501750",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -251,7 +251,7 @@
     },
     "recent_volume": 1358558.0,
     "cr_ratio": 0.36,
-    "scanned_at": "2026-08-19T07:02:38.408547",
+    "scanned_at": "2026-08-19T07:50:22.187265",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -283,7 +283,7 @@
     },
     "recent_volume": 10463526.0,
     "cr_ratio": 0.37,
-    "scanned_at": "2026-08-19T07:03:20.364574",
+    "scanned_at": "2026-08-19T07:50:47.347020",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -315,7 +315,7 @@
     },
     "recent_volume": 21300.0,
     "cr_ratio": 0.5,
-    "scanned_at": "2026-08-19T07:03:19.889391",
+    "scanned_at": "2026-08-19T07:50:47.013600",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   }
