@@ -27,7 +27,7 @@
     },
     "recent_volume": 148833.0,
     "cr_ratio": 0.8,
-    "scanned_at": "2026-11-19T06:58:44.271517",
+    "scanned_at": "2026-11-19T16:30:30.573992",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -59,7 +59,7 @@
     },
     "recent_volume": 15102484.0,
     "cr_ratio": 0.87,
-    "scanned_at": "2026-11-19T06:59:11.494054",
+    "scanned_at": "2026-11-19T16:30:59.628330",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -91,7 +91,7 @@
     },
     "recent_volume": 2120041.0,
     "cr_ratio": 0.91,
-    "scanned_at": "2026-11-19T06:59:19.796193",
+    "scanned_at": "2026-11-19T16:31:08.142060",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -123,7 +123,7 @@
     },
     "recent_volume": 20801078.0,
     "cr_ratio": 0.0,
-    "scanned_at": "2026-11-19T06:58:55.163916",
+    "scanned_at": "2026-11-19T16:30:42.829828",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -155,7 +155,7 @@
     },
     "recent_volume": 0.0,
     "cr_ratio": 1.0,
-    "scanned_at": "2026-11-19T06:58:26.007430",
+    "scanned_at": "2026-11-19T16:30:10.465019",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -187,7 +187,7 @@
     },
     "recent_volume": 525.0,
     "cr_ratio": 1.0,
-    "scanned_at": "2026-11-19T06:58:25.073938",
+    "scanned_at": "2026-11-19T16:30:09.538626",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -219,7 +219,7 @@
     },
     "recent_volume": 4086219.0,
     "cr_ratio": 1.0,
-    "scanned_at": "2026-11-19T06:59:09.664191",
+    "scanned_at": "2026-11-19T16:30:57.871993",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -227,13 +227,13 @@
     "ticker": "SHL.AX",
     "asx_code": "SHL",
     "price": 21.33,
-    "rvol": 1.73,
+    "rvol": 1.72,
     "atr_pct": 1.83,
     "atr_value": 0.3893,
     "volume_velocity": 1.65,
     "is_trending": true,
     "market_cap": 10542095360,
-    "vwap": 19.5075,
+    "vwap": 19.5072,
     "vwap_distance_pct": 9.34,
     "vwap_position": "above",
     "gap_up": false,
@@ -249,9 +249,9 @@
       "trend": true,
       "cr": true
     },
-    "recent_volume": 2463359.0,
+    "recent_volume": 2455461.0,
     "cr_ratio": 0.94,
-    "scanned_at": "2026-11-19T06:59:12.368449",
+    "scanned_at": "2026-11-19T16:31:00.494335",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -283,7 +283,7 @@
     },
     "recent_volume": 38818.0,
     "cr_ratio": 0.4,
-    "scanned_at": "2026-11-19T06:59:23.445474",
+    "scanned_at": "2026-11-19T16:31:11.678474",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   },
@@ -291,13 +291,13 @@
     "ticker": "SPK.AX",
     "asx_code": "SPK",
     "price": 1.82,
-    "rvol": 1.22,
+    "rvol": 1.23,
     "atr_pct": 2.04,
     "atr_value": 0.0371,
-    "volume_velocity": 1.41,
+    "volume_velocity": 1.42,
     "is_trending": true,
     "market_cap": 3450094592,
-    "vwap": 1.6584,
+    "vwap": 1.6585,
     "vwap_distance_pct": 9.74,
     "vwap_position": "above",
     "gap_up": false,
@@ -305,7 +305,7 @@
     "vwap_multiplier": 1.2,
     "gap_bonus": 1.0,
     "score": 6.39,
-    "pulse_score": 0.17,
+    "pulse_score": 0.18,
     "passes_filters": false,
     "filters": {
       "rvol": false,
@@ -313,9 +313,9 @@
       "trend": true,
       "cr": true
     },
-    "recent_volume": 2126487.0,
+    "recent_volume": 2152642.0,
     "cr_ratio": 0.75,
-    "scanned_at": "2026-11-19T06:59:14.164796",
+    "scanned_at": "2026-11-19T16:31:02.536670",
     "sentiment_score": 0.5,
     "sentiment_posts": 0
   }
